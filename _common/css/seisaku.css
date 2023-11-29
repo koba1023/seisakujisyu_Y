@@ -1,33 +1,49 @@
+header {
+    background: #000000;
+}
+
+.header-container {
+    padding: 30px 20px 10px 20px;
+}
+
+nav {
+    background: #000000;
+}
+
 body {
-    background-color: #000000;
+
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 50px;
     color: #ffffff;
 }
+
 ul {
-    overflow:hidden;
-    list-style:none;
+    overflow: hidden;
+    list-style: none;
     margin: 0 auto;
     z-index: 20;
-    }
-    
-    ul li {
-     display: inline-block;
-     padding: 26px 10px 20px 10px;
-    }
+}
+
+ul li {
+    display: inline-block;
+    padding: 26px 10px 20px 10px;
+}
+
 a {
     color: #fff;
     text-transform: uppercase;
-    }
-.btn4{
+}
+
+.btn4 {
     text-transform: uppercase;
     text-align: center;
     position: relative;
     text-decoration: none;
-    display:inline-block;
-    }
-    .btn4::before {
+    display: inline-block;
+}
+
+.btn4::before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -44,21 +60,22 @@ a {
     transform: scale(0, 1);
     -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
     transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
-    }
-    .btn4:hover::before {
+}
+
+.btn4:hover::before {
     -webkit-transform-origin: left top;
     -ms-transform-origin: left top;
     transform-origin: left top;
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     transform: scale(1, 1)
-    }
-    
-    .btn2{
+}
+
+.btn2 {
     text-transform: uppercase;
     text-align: center;
     position: relative;
     text-decoration: none;
-    display:inline-block;
+    display: inline-block;
     border-bottom: 2px solid #3367ff;
-    }
+}
