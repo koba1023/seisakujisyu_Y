@@ -23,40 +23,7 @@ body {
     color: #ffffff;
 }
 
-#main {
-    margin: 0 auto;
-}
 
-#mainTable {
-    border: 0px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-th.right-align {
-    text-align: right;
-}
-
-
-td.left-align {
-    text-align: left;
-}
-
-
-#regiTable {
-    border: 1px solid;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-#regiTable th {
-    border: 1px solid;
-}
-
-#regiTable td {
-    border: 1px solid;
-}
 
 ul {
     overflow: hidden;
@@ -118,4 +85,39 @@ a {
     text-decoration: none;
     display: inline-block;
     border-bottom: 2px solid #3367ff;
+}
+
+#main {
+    margin: 0 auto;
+}
+
+#mainTable {
+    border: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th.right-align {
+    text-align: right;
+}
+
+
+td.left-align {
+    text-align: left;
+}
+
+
+#regiTable {
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#regiTable th {
+    border: 1px solid;
+}
+
+#regiTable td {
+    border: 1px solid;
 }
