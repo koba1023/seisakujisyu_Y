@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>防災宝典</title>
+    <link href=""> <!--リンクのアイコン-->
+    <link href="../_common/css/seisaku.login" rel="stylesheet"><!--CSSのやつ-->
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>防災宝典</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <ul class="globalnav">
+                <li><a href="seisaku1.html" class="btn2">ホーム</a></li>
+                <li><a href="seisaku2.html" class="btn4">避難場所一覧</a></li>
+                <li><a href="seisaku3.html" class="btn4">ボランティア募集</a></li>
+                <li><a href="seisaku4.html" class="btn4">掲示板</a></li>
+                <li><a href="seisaku5.html" class="btn4">チェックリスト</a></li>
+                <li><a href="seisaku6.html" class="btn4">ログイン</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="main">
+        <h2>ログインページ</h2>
+        <hr><br>
+        ログインしてください。初めての方は「新規ユーザー登録」をしてください。
+        <form method="POST" action="/PHP/seisaku.php">
+            <table id="mainTable">
+                <tr>
+                    <th class="right-align">ユーザーID:</th>
+                    <td class="left-align"><input type="text" name="userId" required></td>
+                </tr>
+                <tr>
+                    <th class="right-align">パスワード:</th>
+                    <td class="left-align"><input type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <th class="right-align">&nbsp;</th>
+                    <td class="left-align"><input type="submit" value="ログイン"></td>
+                </tr>
+            </table>
+        </form>
+        <p><a href="seisaku7.html">新規登録はこちらから</a></p>

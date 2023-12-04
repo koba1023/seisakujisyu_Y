@@ -8,7 +8,7 @@ if(isset($_SESSION['login_error'])){
     echo '<p>利用するにあたってはログインしてください。</p>';
 }
 ?>
-<form method="POST" action="./seisaku_db.php">
+<form method="POST" action="seisaku_db.php">
     <table>
         <tr>
             <td>Eメール</td>
