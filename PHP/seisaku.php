@@ -25,5 +25,5 @@ if(isset($_SESSION['login_error'])){
 </form>
 <a href="./signup.php"><span class="button_image">新規登録はこちらから</span></a>
 <?php
-require_once __DIR__.'/../footer.php';
+require_once __DIR__.'/footer.php';
 ?>
