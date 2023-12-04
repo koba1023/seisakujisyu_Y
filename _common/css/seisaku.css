@@ -94,3 +94,6 @@ a {
     display: inline-block;
     border-bottom: 2px solid #3367ff;
 }
+.check {
+    color: #000000;
+}
