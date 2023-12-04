@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__. '/_common/css/seisaku.css';
+require_once __DIR__. '/header.php';
 
 if(isset($_SESSION['login_error'])){
     echo '<p class="error_class">'. $_SESSION['login_error']. '</p>';
