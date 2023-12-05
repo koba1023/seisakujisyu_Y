@@ -49,6 +49,12 @@ a {
     color: #fff;
     text-transform: uppercase;
 }
+.check-link{
+    color: #3367ff;
+}
+.check-link:visited{
+    color: purple;
+}
 
 .btn4 {
     text-transform: uppercase;
@@ -96,4 +102,12 @@ a {
 }
 .check {
     color: #000000;
+    display: flex;
+    justify-content: center;
+}
+.check-list{
+    color: #000000;
+}
+.not-link{
+    background-image: linear-gradient(to right top, transparent calc(50% - 0.5px), #999 50%, #999 calc(50% + 0.5px), transparent calc(50% + 1px))
 }
