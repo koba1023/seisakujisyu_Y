@@ -1,0 +1,129 @@
+html {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 479px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+header {
+    background: #000000;
+}
+
+.header-container {
+    padding: 30px 20px 10px 20px;
+}
+
+nav {
+    background: #000000;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    color: #ffffff;
+}
+
+ul {
+    overflow: hidden;
+    list-style: none;
+    margin: 0 auto;
+    z-index: 20;
+}
+
+ul li {
+    display: inline-block;
+    padding: 26px 10px 20px 10px;
+}
+
+a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn4 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn4::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #3367ff;
+    display: block;
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+}
+
+.btn4:hover::before {
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1)
+}
+
+.btn2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid #3367ff;
+}
+
+.check {
+    color: #000000;
+}
+
+#map {
+    height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-map-control-button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    height: 40px;
+    cursor: pointer;
+}
+
+.custom-map-control-button:hover {
+    background: rgb(235, 235, 235);
+}
