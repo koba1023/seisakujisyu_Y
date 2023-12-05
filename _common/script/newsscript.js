@@ -1,27 +1,36 @@
 'use strict';
 
-//データ取得
-const apiKey = '07fded7d38f64bb2b96ad03c65e1404d';
-const apiUrl = 'https://newsapi.org/v2/everything';
-
-
-const country = 'jp'; // 取得したい国のコード（日本の場合は'jp'）
-const query = '災害';
-const pageSize = 10;
-const requestUrl = `${apiUrl}?q=${query}&pageSize=${pageSize}&apiKey=${apiKey}`;
-
-// ニュースを取得する関数
 async function fetchDisasterNews() {
+    const apiKey = '07fded7d38f64bb2b96ad03c65e1404d';
+    const apiUrl = 'https://newsapi.org/v2/everything';
+
+    const country = 'jp';
+    const query = '災害';
+    const pageSize = 5;
+    const requestUrl = `${apiUrl}?q=${query}&pageSize=${pageSize}&apiKey=${apiKey}`;
+
     try {
         const response = await fetch(requestUrl);
         const data = await response.json();
 
+        const newsListDiv = document.getElementById('newsList');
 
-        console.log(data.articles);
+        data.articles.forEach(article => {
+            const newsItem = document.createElement('div');
+            newsItem.classList.add('news-item');
+            newsItem.innerHTML = `
+                <h2>${article.title}</h2>
+                <p>${article.description}</p>
+                <a href="${article.url}" target="_blank">詳細を読む</a>
+                <hr>
+            `;
+            newsListDiv.appendChild(newsItem);
+        });
     } catch (error) {
         console.error('エラーが発生しました:', error);
     }
 }
 
-// 災害関連のニュースを取得する関数を実行
-fetchDisasterNews();
+window.onload = function () {
+    fetchDisasterNews();
+};

@@ -95,40 +95,35 @@ a {
     border-bottom: 2px solid #3367ff;
 }
 
-.check {
-    color: #000000;
-}
-
 #newsList {
-    font-family: Arial, sans-serif;
     margin-top: 20px;
 }
 
 
-#newsList div {
+.news-item {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
 
-
-#newsList h2 {
+/* ニュースのタイトルのスタイル */
+.news-item h2 {
     font-size: 20px;
     color: #333;
     margin-bottom: 5px;
 }
 
-
-#newsList p {
+/* ニュースの説明のスタイル */
+.news-item p {
     color: #666;
 }
 
-
-#newsList a {
+/* リンクのスタイル */
+.news-item a {
     text-decoration: none;
     color: blue;
 }
 
-
-#newsList a:hover {
+/* リンクのホバー時のスタイル */
+.news-item a:hover {
     text-decoration: underline;
 }
