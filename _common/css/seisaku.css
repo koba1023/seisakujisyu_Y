@@ -30,7 +30,6 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 50px;
-    color: #ffffff;
 }
 
 ul {
@@ -46,7 +45,6 @@ ul li {
 }
 
 a {
-    color: #fff;
     text-transform: uppercase;
 }
 
@@ -56,6 +54,7 @@ a {
     position: relative;
     text-decoration: none;
     display: inline-block;
+    color: #ffffff;
 }
 
 .btn4::before {
@@ -93,6 +92,7 @@ a {
     text-decoration: none;
     display: inline-block;
     border-bottom: 2px solid #3367ff;
+    color: #ffffff;
 }
 
 .check {
@@ -113,3 +113,29 @@ a {
     color: #000000;
     font-size: 50px;
 }
+
+th.right-align {
+    text-align: right;
+    color: #000000;
+}
+
+
+td.left-align {
+    text-align: left;
+}
+
+#regiTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainTable {
+    border: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-container{
+    color: #ffffff;
+}
+
