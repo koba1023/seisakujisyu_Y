@@ -379,169 +379,23 @@
             });
         });
 
-        // ページが読み込まれたときの処理
         document.addEventListener("DOMContentLoaded", function () {
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header0');
+    function addCategoryClickListener(categoryIndex) {
+        var categoryHeader = document.querySelector('.category-header' + categoryIndex);
+        var categoryItems = document.querySelectorAll('.category-items' + categoryIndex);
 
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items0');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header1');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items1');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header2');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items2');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header3');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items3');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header4');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items4');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header5');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items5');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header6');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items6');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header7');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items7');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // カテゴリーヘッダーの要素を取得
-            var categoryHeader = document.querySelector('.category-header8');
-
-            // カテゴリーヘッダーがクリックされたときの処理
-            categoryHeader.addEventListener('click', function () {
-                // カテゴリーアイテムの要素を取得
-                var categoryItems = document.querySelectorAll('.category-items8');
-
-                // カテゴリーアイテムが非表示の場合は表示し、表示されている場合は非表示にする
-                categoryItems.forEach(function (item) {
-                    if (item.style.display === 'none') {
-                        item.style.display = 'table-row';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+        categoryHeader.addEventListener('click', function () {
+            categoryItems.forEach(function (item) {
+                item.style.display = (item.style.display === 'none') ? 'table-row' : 'none';
             });
         });
+    }
+
+    for (let i = 0; i <= 8; i++) {
+        addCategoryClickListener(i);
+    }
+});
+
     </script>
 </body>
 
