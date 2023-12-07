@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>防災宝典</title>
-    <link href=""> <!--リンクのアイコン-->
+    <link href="../_common/image/ページアイコン.ico" rel="shortcut icon"> <!--リンクのアイコン-->
     <link href="../_common/css/a.css" rel="stylesheet"><!--CSSのやつ-->
     <style>
         .category-header {
@@ -412,21 +412,21 @@
         });
 
         document.addEventListener("DOMContentLoaded", function () {
-    function addCategoryClickListener(categoryIndex) {
-        var categoryHeader = document.querySelector('.category-header' + categoryIndex);
-        var categoryItems = document.querySelectorAll('.category-items' + categoryIndex);
+            function addCategoryClickListener(categoryIndex) {
+                var categoryHeader = document.querySelector('.category-header' + categoryIndex);
+                var categoryItems = document.querySelectorAll('.category-items' + categoryIndex);
 
-        categoryHeader.addEventListener('click', function () {
-            categoryItems.forEach(function (item) {
-                item.style.display = (item.style.display === 'none') ? 'table-row' : 'none';
-            });
+                categoryHeader.addEventListener('click', function () {
+                    categoryItems.forEach(function (item) {
+                        item.style.display = (item.style.display === 'none') ? 'table-row' : 'none';
+                    });
+                });
+            }
+
+            for (let i = 0; i <= 8; i++) {
+                addCategoryClickListener(i);
+            }
         });
-    }
-
-    for (let i = 0; i <= 8; i++) {
-        addCategoryClickListener(i);
-    }
-});
 
     </script>
 </body>
