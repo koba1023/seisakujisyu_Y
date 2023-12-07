@@ -30,7 +30,6 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 50px;
-    color: #ffffff;
 }
 
 ul {
@@ -46,7 +45,6 @@ ul li {
 }
 
 a {
-    color: #fff;
     text-transform: uppercase;
 }
 
@@ -56,6 +54,7 @@ a {
     position: relative;
     text-decoration: none;
     display: inline-block;
+    color: #ffffff;
 }
 
 .btn4::before {
@@ -93,6 +92,7 @@ a {
     text-decoration: none;
     display: inline-block;
     border-bottom: 2px solid #3367ff;
+    color: #ffffff;
 }
 
 .check {
@@ -114,31 +114,32 @@ a {
     font-size: 50px;
 }
 
+th.right-align {
+    text-align: right;
+    color: #000000;
+}
+
+
+td.left-align {
+    text-align: left;
+}
+
+#regiTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainTable {
+    border: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-container {
+    color: #ffffff;
+}
+
 #map {
-    height: 100%;
-}
-
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.custom-map-control-button {
-    background-color: #fff;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-    margin: 10px;
-    padding: 0 0.5em;
-    font: 400 18px Roboto, Arial, sans-serif;
-    overflow: hidden;
-    height: 40px;
-    cursor: pointer;
-}
-
-.custom-map-control-button:hover {
-    background: rgb(235, 235, 235);
+    width: 100%;
+    height: 400px;
 }
