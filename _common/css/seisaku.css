@@ -135,7 +135,37 @@ td.left-align {
     margin-right: auto;
 }
 
-.header-container{
+.header-container {
     color: #ffffff;
 }
 
+section {
+    margin-bottom: 20px;
+}
+
+/* 投稿フォーム */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+textarea,
+input[type="file"],
+button {
+    margin-bottom: 10px;
+}
+
+/* 投稿一覧 */
+#postList {
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.post {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}

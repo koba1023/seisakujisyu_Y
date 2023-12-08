@@ -28,10 +28,13 @@
     </nav>
     <div class="main-contents">
         <div class="main-contents-container">
-            <h1>掲示板</h1>
             <section>
                 <h2>新規投稿</h2>
+                <form id="postForm">
+                    <label for="postContent">投稿内容：</label><br>
+                    <textarea id="postContent" name="postContent" rows="4" cols="50"></textarea><br>
+                    <label for="postImage">画像：</label><br>
+                    <input type="file" id="postImage" name="postImage"><br><br>
+                    <button type="submit">投稿する</button>
+                </form>
             </section>
-        </div>
-    </div>
-</body>
