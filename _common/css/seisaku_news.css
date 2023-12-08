@@ -127,7 +127,8 @@ a[href="#jizen"] {
     color: red;
     width: 500px;
     margin-top: 100px;
-    text-decoration: none; /* 下線を無効にする */
+    text-decoration: none;
+    /* 下線を無効にする */
     font-weight: bold;
 }
 
@@ -136,7 +137,8 @@ a[href="#jigo"] {
     color: blue;
     width: 800px;
     margin-top: 100px;
-    text-decoration: none; /* 下線を無効にする */
+    text-decoration: none;
+    /* 下線を無効にする */
     font-weight: bold;
 }
 
@@ -145,40 +147,43 @@ a[href="#news"] {
     color: skyblue;
     width: 1100px;
     margin-top: 150px;
-    text-decoration: none; /* 下線を無効にする */
+    text-decoration: none;
+    /* 下線を無効にする */
     font-weight: bold;
 }
 
-a[href="#jizen"] + a[href="#jigo"]{
-    margin-left: 210px; /* 適切なスペースの値を設定 */
+a[href="#jizen"]+a[href="#jigo"] {
+    margin-left: 210px;
+    /* 適切なスペースの値を設定 */
 }
 
-a[href="#jigo"] + a[href="#news"]{
-    margin-left: 200px; /* 適切なスペースの値を設定 */
+a[href="#jigo"]+a[href="#news"] {
+    margin-left: 200px;
+    /* 適切なスペースの値を設定 */
 }
 
-p.a{
+p.a {
     font-size: 30px;
     font-weight: bold;
     line-height: 2;
     color: #333;
 }
 
-p.b{
+p.b {
     font-size: 20px;
     line-height: 2;
     color: #333;
-    
+
 }
 
-p.c{
+p.c {
     font-size: 20px;
     line-height: 2;
     color: #333;
     font-weight: bold;
 }
 
-p.d{
+p.d {
     font-size: 20px;
     line-height: 2;
     color: red;
@@ -204,7 +209,7 @@ h2.b {
     margin: 25px 0;
 }
 
-h2.c{
+h2.c {
     font-size: 50px;
     font-weight: bold;
     line-height: 2;
@@ -212,14 +217,14 @@ h2.c{
     margin: 25px 0;
 }
 
-a.linka{
+a.linka {
     font-size: 30px;
     color: #333;
     width: 500px;
     margin-top: 100px;
 }
 
-a.linkb{
+a.linkb {
     font-size: 30px;
     color: #333;
     width: 800px;
@@ -228,21 +233,27 @@ a.linkb{
 
 .content-wrapper {
     display: flex;
-    align-items: center; /* 上下中央揃え */
+    align-items: center;
+    /* 上下中央揃え */
 }
 
 .image-container {
-    flex: 1; /* 左側（画像側）の幅を自動調整 */
-    margin-right: 20px; /* 画像とテキストの間隔を設定 */
+    flex: 1;
+    /* 左側（画像側）の幅を自動調整 */
+    margin-right: 20px;
+    /* 画像とテキストの間隔を設定 */
 }
 
 .image-container img {
-    max-width: 100%; /* 画像の幅がコンテナに収まるように */
-    height: auto; /* アスペクト比を維持 */
+    max-width: 100%;
+    /* 画像の幅がコンテナに収まるように */
+    height: auto;
+    /* アスペクト比を維持 */
 }
 
 .text-container {
-    flex: 2; /* 右側（テキスト側）の幅を自動調整 */
+    flex: 2;
+    /* 右側（テキスト側）の幅を自動調整 */
 }
 
 
@@ -304,4 +315,12 @@ hr.b {
 
 html {
     scroll-behavior: smooth;
+}
+
+footer {}
+
+.footer-container {
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    background: #000000;
 }

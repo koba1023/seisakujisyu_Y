@@ -147,3 +147,10 @@ div.main {
     color: #000000;
 }
 
+footer {}
+
+.footer-container {
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    background: #000000;
+}

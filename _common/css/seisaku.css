@@ -169,3 +169,11 @@ button {
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
 }
+
+footer {}
+
+.footer-container {
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    background: #000000;
+}
