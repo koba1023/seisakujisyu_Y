@@ -21,6 +21,7 @@ async function fetchDisasterNews() {
             newsItem.innerHTML = `
                 <h2>${article.title}</h2>
                 <p>${article.description}</p>
+                <p>公開日：${new Date(article.publishedAt).toLocaleDateString()}</p>
                 <a href="${article.url}" target="_blank">詳細を読む</a>
                 <hr>
             `;
