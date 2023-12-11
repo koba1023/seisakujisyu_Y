@@ -1,9 +1,81 @@
 <?php
-$name = $_POST['name'];
-$address = $_POST['address'];
-$dosha = $_POST['dosha'];
-$kouzui = $_POST['kouzui'];
-$tunami = $_POST['tunami'];
-$petto = $_POST['petto'];
+//データベース接続
+$dsn='mysql:dbname=seisaku;host=localhost;charset=utf8';
+$user='root';
+$password='';
+$dbh=new PDO($dsn,$user,$password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
+//「検索」ボタン押下時
+if (isset($_POST["search"])) {
+
+$search_fname = $_POST["search_address"];
+
+//実行
+$sql="SELECT * FROM items WHERE 'address' like '%{$search_address}%'";
+$rec = $dbh->prepare($sql);
+$rec->execute();
+$rec_list = $rec->fetchAll(PDO::FETCH_ASSOC);
+
+}else{
+
+//「検索」ボタン押下してないとき
+$sql='SELECT * FROM items WHERE 1';
+$rec = $dbh->prepare($sql);
+$rec->execute();
+$rec_list = $rec->fetchAll(PDO::FETCH_ASSOC);
+}
+
+//データベース切断
+$dbh=null;
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<!--検索-->
+<form action="kensaku.php" method="POST">
+<table border="1" style="border-collapse: collapse">
+<tr>
+<th>名前</th>
+<td><input type="text" name="search_fname" value="<?php if( !empty($_POST['search_address']) ){ echo $_POST['search_address']; } ?>"></td></td>
+<td><input type="submit" name="search" value="検索"></td>
+</tr>
+</table>
+</form>
+<br />
+
+<!--検索解除-->
+<?php if (isset($_POST["search"])) {?>
+<a href="http://localhost/kensaku.php">検索を解除</a><br />
+<?php } ?>
+
+<table border="1" style="border-collapse: collapse">
+<tr>
+<th>名前</th>
+<th>住所</th>
+<th>土砂災害</th>
+<th>洪水</th>
+<th>津波</th>
+<th>ペット</th>
+</tr>
+
+<!--MySQLデータを表示-->
+<?php foreach ($rec_list as $rec) { ?>
+<tr>
+<td><?php echo $rec['name'];?></td>
+<td><?php echo $rec['address'];?></td>
+<td><?php echo $rec['dosha'];?></td>
+<td><?php echo $rec['kouzui'];?></td>
+<td><?php echo $rec['tunami'];?></td>
+<td><?php echo $rec['petto'];?></td>
+</tr>
+<?php } ?>
+</table>
+
+</body>
+</html>
