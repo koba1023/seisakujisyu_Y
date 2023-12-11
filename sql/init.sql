@@ -17,7 +17,7 @@ insert into users(userId, userName, kana, zip, address, tel, password)
  # 新しいデータベースの作成
 CREATE DATABASE IF NOT EXISTS seisaku;
 # データベースの選択
-USE items;
+USE seisaku;
 # テーブルitemsの作成
 drop table if exists items;
 # テーブルitemsの作成
