@@ -6,13 +6,14 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
+
 //「検索」ボタン押下時
 if (isset($_POST["search"])) {
 
 $search_town = $_POST["search_town"];
 
 //実行
-$sql="SELECT * FROM items WHERE town LIKE '%{$search_town}%' OR district LIKE '%{$search_district}%'";
+$sql="SELECT * FROM items WHERE town LIKE '%{$search_town}%'";
 $rec = $dbh->prepare($sql);
 $rec->execute();
 $rec_list = $rec->fetchAll(PDO::FETCH_ASSOC);
