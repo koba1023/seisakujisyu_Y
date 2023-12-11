@@ -9,10 +9,10 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 //「検索」ボタン押下時
 if (isset($_POST["search"])) {
 
-$search_fname = $_POST["search_address"];
+$search_town = $_POST["search_town"];
 
 //実行
-$sql="SELECT * FROM items WHERE 'address' like '%{$search_address}%'";
+$sql="SELECT * FROM items WHERE town LIKE '%{$search_town}%' OR district LIKE '%{$search_district}%'";
 $rec = $dbh->prepare($sql);
 $rec->execute();
 $rec_list = $rec->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,9 @@ $dbh=null;
 <table border="1" style="border-collapse: collapse">
 <tr>
 <th>名前</th>
-<td><input type="text" name="search_fname" value="<?php if( !empty($_POST['search_address']) ){ echo $_POST['search_address']; } ?>"></td></td>
+<td><input type="text" name="search_town" value="<?php if (!empty($_POST['search_town'])) { echo $_POST['search_town']; } ?>"></td>
+<th>区</th>
+<td><input type="text" name="search_district" value="<?php if (!empty($_POST['search_district'])) { echo $_POST['search_district']; } ?>"></td>
 <td><input type="submit" name="search" value="検索"></td>
 </tr>
 </table>
@@ -51,13 +53,14 @@ $dbh=null;
 
 <!--検索解除-->
 <?php if (isset($_POST["search"])) {?>
-<a href="http://localhost/kensaku.php">検索を解除</a><br />
+<a href="http://localhost/seisakujisyu_Y/HTML/src/kensaku.php">検索を解除</a><br />
 <?php } ?>
 
 <table border="1" style="border-collapse: collapse">
 <tr>
 <th>名前</th>
-<th>住所</th>
+<th>区</th>
+<th>町</th>
 <th>土砂災害</th>
 <th>洪水</th>
 <th>津波</th>
@@ -68,7 +71,8 @@ $dbh=null;
 <?php foreach ($rec_list as $rec) { ?>
 <tr>
 <td><?php echo $rec['name'];?></td>
-<td><?php echo $rec['address'];?></td>
+<td><?php echo $rec['district'];?></td>
+<td><?php echo $rec['town'];?></td>
 <td><?php echo $rec['dosha'];?></td>
 <td><?php echo $rec['kouzui'];?></td>
 <td><?php echo $rec['tunami'];?></td>
