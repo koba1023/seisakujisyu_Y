@@ -41,6 +41,9 @@
         background-color: green;
         color: #fff;
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .card-body {
@@ -106,12 +109,47 @@
 
     .toggle-button {
         cursor: pointer;
-        color: #007bff;
+        color: #007bff; /* トグルボタンのテキストカラーを青に変更 */
         text-decoration: underline;
         display: block;
         margin-top: 10px;
+        transition: color 0.3s;
     }
-</style>
+
+    .toggle-button:hover {
+        color: #0056b3; /* ホバー時のテキストカラーを濃い青に変更 */
+    }
+
+    .reply-form {
+        margin-top: 10px;
+    }
+
+    .reply-input,
+    .reply-button {
+        width: calc(100% - 30px);
+        margin: 5px 15px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .reply-button {
+        background-color: #28a745; /* 緑に変更 */
+        color: #fff;
+        border: 2px solid #28a745; /* ボーダーも変更 */
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .reply-button:hover {
+        background-color: #218838; /* ホバー時の色も変更 */
+        border-color: #218838;
+    }
+    </style>
+
 
 <body>
     <header>
@@ -192,6 +230,7 @@
                 var messagesContainer = document.getElementById('messages');
                 var card = document.createElement('div');
                 card.className = 'card';
+                var messageId = 'message' + Date.now(); // Generate a unique ID for each message
 
                 var cardHeader = document.createElement('div');
                 cardHeader.className = 'card-header';
@@ -205,9 +244,20 @@
                 cardBody.className = 'card-body';
                 cardBody.textContent = message;
 
+                var replyButton = document.createElement('div');
+                replyButton.className = 'toggle-button';
+                replyButton.textContent = '返信';
+                replyButton.onclick = function () {
+                    showReplyForm(username, messageId);
+                };
+
                 card.appendChild(cardHeader);
                 card.appendChild(locationParagraph);
                 card.appendChild(cardBody);
+                card.appendChild(replyButton);
+
+                // Set a unique ID to the card for later reference
+                card.id = messageId;
 
                 messagesContainer.appendChild(card);
 
@@ -225,7 +275,68 @@
             var terms = document.getElementById('terms');
             terms.style.display = (terms.style.display === 'none' || terms.style.display === '') ? 'block' : 'none';
         }
+
+        function showReplyForm(username, messageId) {
+            var messageContainer = document.getElementById(messageId);
+
+            // 返信フォームが既に表示されているか確認
+            var existingReplyForm = messageContainer.querySelector('.reply-form');
+            if (!existingReplyForm) {
+                // 既存の返信フォームが存在しない場合、新しい返信フォームを作成
+                var replyForm = document.createElement('div');
+                replyForm.className = 'reply-form';
+
+                var replyInput = document.createElement('textarea');
+                replyInput.className = 'reply-input';
+                replyInput.placeholder = 'ここに返信を入力してください';
+
+                var replyUsernameInput = document.createElement('input');
+                replyUsernameInput.id = 'reply-username-input';
+                replyUsernameInput.type = 'text';
+                replyUsernameInput.placeholder = 'ユーザー名を入力してください';
+
+                var replyButton = document.createElement('button');
+                replyButton.className = 'reply-button';
+                replyButton.textContent = '返信';
+                replyButton.onclick = function () {
+                    sendReply(replyUsernameInput.value, replyInput.value, messageId);
+                };
+
+                replyForm.appendChild(replyUsernameInput);
+                replyForm.appendChild(replyInput);
+                replyForm.appendChild(replyButton);
+
+                // 返信フォームを表示
+                replyForm.style.display = 'block';
+
+                // メッセージコンテナに追加
+                messageContainer.appendChild(replyForm);
+            }
+        }
+
+        function sendReply(username, replyMessage, messageId) {
+            var messagesContainer = document.getElementById('messages');
+            var reply = document.createElement('div');
+            reply.className = 'reply-message';
+            reply.textContent = username + ' からの返信: ' + replyMessage;
+
+            // 返信メッセージを対象のメッセージの下に追加
+            var messageContainer = document.getElementById(messageId);
+            messageContainer.appendChild(reply);
+
+            // 返信フォームを非表示にする
+            hideReplyForm(messageId);
+        }
+
+        function hideReplyForm(messageId) {
+            // 返信フォームを非表示にするコード
+            var replyForm = document.getElementById(messageId).querySelector('.reply-form');
+            if (replyForm) {
+                replyForm.remove();
+            }
+        }
     </script>
+
     <footer>
         <div class="footer-container">
 
@@ -234,3 +345,5 @@
 </body>
 
 </html>
+
+
