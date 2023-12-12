@@ -153,7 +153,7 @@ footer {}
 }
 
 /*  検索バー　*/
-.search_container{
+.search_container {
     box-sizing: border-box;
     position: relative;
     border: 1px solid #999;
@@ -163,15 +163,18 @@ footer {}
     width: 500px;
     height: 2.3em;
     overflow: hidden;
-  }
-  .search_container input[type="text"]{
+}
+
+.search_container input[type="text"] {
     border: none;
     height: 2.0em;
-  }
-  .search_container input[type="text"]:focus {
+}
+
+.search_container input[type="text"]:focus {
     outline: 0;
-  }
-  .search_container input[type="submit"]{
+}
+
+.search_container input[type="submit"] {
     cursor: pointer;
     font-family: FontAwesome;
     border: none;
@@ -180,11 +183,11 @@ footer {}
     position: absolute;
     width: 3.5em;
     height: 3.0em;
-    right:0px;
+    right: 0px;
     top: -3px;
-    outline : none;
-  }
+    outline: none;
+}
 
-  .main-contents-container {
+.main-contents-container {
     margin-top: 20px;
 }
