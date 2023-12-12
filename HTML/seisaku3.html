@@ -7,6 +7,105 @@
     <link href="../_common/image/ページアイコン.ico" rel="shortcut icon"> <!--リンクのアイコン-->
     <link href="../_common/css/seisaku.css" rel="stylesheet"><!--CSSのやつ-->
 </head>
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .card {
+      margin: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card-header {
+      background-color: green;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    #username-input,
+    #location-input,
+    #message-input {
+      width: calc(100% - 30px);
+      margin: 15px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #send-button {
+      background-color: green;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto; /* 中央に寄せるスタイル */
+    }
+    .terms {
+      background-color: papayawhip;
+      color: black;
+      text-align: left;
+      padding: 20px;
+      border-radius: 0 0 8px 8px;
+      margin-top: 20px;
+      display: none;
+      max-height: 300px; /* 一度に表示できる高さを設定 */
+      overflow: auto;  /* 最初は非表示 */
+    }
+
+    .terms p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .terms ol, .terms ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .terms li {
+      margin-bottom: 10px;
+    }
+
+    .terms ul ul {
+      margin-top: 5px;
+    }
+
+    .toggle-button {
+      cursor: pointer;
+      color: #007bff;
+      text-decoration: underline;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
 
 <body>
     <header>
@@ -26,16 +125,100 @@
             </ul>
         </div>
     </nav>
-    <div class="main-contents">
-        <div class="main-contents-container">
-
+    <div class="container">
+        <h2>ボランティア募集掲示板</h2>
+        <div id="messages"></div>
+    
+        <form id="message-form">
+            <input type="text" id="username-input" placeholder="ユーザー名を入力してください">
+            <!-- 場所の入力欄を追加 -->
+            <input type="text" id="location-input" placeholder="場所を入力してください">
+            <textarea id="message-input" placeholder="ここにメッセージを入力してください"></textarea>
+            <button type="button" id="send-button" onclick="sendMessage()">送信</button>
+        </form>
+        <div class="toggle-button" onclick="toggleTerms()">利用規約を表示/非表示</div>
+        <div class="terms" id="terms">
+            <p>利用規約</p>
+            <ol>
+              <li>利用者の行動規範：
+                <ul>
+                  <li>法律の違反する投稿や内容は禁止される。</li>
+                  <li>誹謗中傷、差別的な発言、不適切なコンテンツの投稿は禁止される。</li>
+                </ul>
+              </li>
+              <li>投稿されたコンテンツ：
+                <ul>
+                  <li>利用者は自分が投稿したコンテンツに責任を持ち、権利を侵害しないように注意すること。</li>
+                </ul>
+              </li>
+              <li>禁止事項：
+                <ul>
+                  <li>不正アクセスやセキュリティの脅威をもたらす行為は禁止される。</li>
+                  <li>コンピューターウイルスや有害なコードの配信は禁止される。</li>
+                </ul>
+              </li>
+              <li>プライバシー：
+                <ul>
+                  <li>個人情報の投稿や収集は禁止され、他の利用者のプライバシーを尊重すること。</li>
+                </ul>
+              </li>
+              <li>法的責任の免除：
+                <ul>
+                  <li>当サイトは、利用者が当サイトを利用することにより生じた直接または間接の損害に対して一切の責任を負いません。</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
         </div>
-    </div>
-    <footer>
-        <div class="footer-container">
-
-        </div>
-    </footer>
-</body>
-
-</html>
+        
+      
+    
+        <script>
+            function sendMessage() {
+                var usernameInput = document.getElementById('username-input');
+                var locationInput = document.getElementById('location-input');
+                var messageInput = document.getElementById('message-input');
+                var username = usernameInput.value;
+                var location = locationInput.value;
+                var message = messageInput.value;
+        
+                if (username.trim() !== '' && location.trim() !== '' && message.trim() !== '') {
+                    var messagesContainer = document.getElementById('messages');
+                    var card = document.createElement('div');
+                    card.className = 'card';
+        
+                    var cardHeader = document.createElement('div');
+                    cardHeader.className = 'card-header';
+                    cardHeader.textContent = username;
+        
+                    var locationParagraph = document.createElement('p');
+                    locationParagraph.className = 'location-paragraph';
+                    locationParagraph.textContent = '場所: ' + location;
+        
+                    var cardBody = document.createElement('div');
+                    cardBody.className = 'card-body';
+                    cardBody.textContent = message;
+        
+                    card.appendChild(cardHeader);
+                    card.appendChild(locationParagraph);
+                    card.appendChild(cardBody);
+        
+                    messagesContainer.appendChild(card);
+        
+                    // メッセージを追加したら、全ての入力欄をクリア
+                    usernameInput.value = '';
+                    locationInput.value = '';
+                    messageInput.value = '';
+        
+                    // メッセージが追加されたら、一番下にスクロール
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }
+            }
+        
+            function toggleTerms() {
+                var terms = document.getElementById('terms');
+                terms.style.display = (terms.style.display === 'none' || terms.style.display === '') ? 'block' : 'none';
+            }
+        </script>
+        </body>
+        </html>
