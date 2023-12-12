@@ -13,25 +13,25 @@ if (isset($_POST["search"])) {
 $search_town = $_POST["search_town"];
 
 // 実行（itemsテーブルからデータ取得）
-$sql_items = "SELECT * FROM items WHERE town LIKE '%{$search_town}%'";
+$sql_items = "SELECT * FROM nadaku_items0 WHERE town LIKE '%{$search_town}%'";
 $rec_items = $dbh->prepare($sql_items);
 $rec_items->execute();
 $rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
 
 // 実行（items2テーブルからデータ取得）
-$sql_items2 = "SELECT * FROM items2 WHERE town LIKE '%{$search_town}%'";
+$sql_items2 = "SELECT * FROM nadaku_items1 WHERE town LIKE '%{$search_town}%'";
 $rec_items2 = $dbh->prepare($sql_items2);
 $rec_items2->execute();
 $rec_list_items2 = $rec_items2->fetchAll(PDO::FETCH_ASSOC);
 } else {
 // 「検索」ボタン押下してないとき（itemsテーブルからデータ取得）
-$sql_items = 'SELECT * FROM items WHERE 1';
+$sql_items = 'SELECT * FROM nadaku_items0 WHERE 1';
 $rec_items = $dbh->prepare($sql_items);
 $rec_items->execute();
 $rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
 
 // （items2テーブルからデータ取得）
-$sql_items2 = 'SELECT * FROM items2 WHERE 1';
+$sql_items2 = 'SELECT * FROM nadaku_items1 WHERE 1';
 $rec_items2 = $dbh->prepare($sql_items2);
 $rec_items2->execute();
 $rec_list_items2 = $rec_items2->fetchAll(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@ $dbh=null;
 <body>
 
 <!--検索-->
-<form action="kensaku.php" method="POST">
+<form action="nadaku.php" method="POST">
 <table border="1" style="border-collapse: collapse">
 <tr>
 <th>町検索</th>
@@ -67,7 +67,7 @@ $dbh=null;
 <h2>○屋内の緊急避難場所（土砂災害、洪水、津波のとき）、避難所</h2>
 <!--検索解除-->
 <?php if (isset($_POST["search"])) {?>
-<a href="http://localhost/seisakujisyu_Y/HTML/src/kensaku.php">検索を解除</a><br />
+<a href="http://localhost/seisakujisyu_Y/HTML/src/nadaku.php">検索を解除</a><br />
 <?php } ?>
 
 <table border="1" style="border-collapse: collapse">
