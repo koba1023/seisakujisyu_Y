@@ -42,10 +42,8 @@ $dbh=null;
 <form action="kensaku.php" method="POST">
 <table border="1" style="border-collapse: collapse">
 <tr>
-<th>名前</th>
+<th>町検索</th>
 <td><input type="text" name="search_town" value="<?php if (!empty($_POST['search_town'])) { echo $_POST['search_town']; } ?>"></td>
-<th>区</th>
-<td><input type="text" name="search_district" value="<?php if (!empty($_POST['search_district'])) { echo $_POST['search_district']; } ?>"></td>
 <td><input type="submit" name="search" value="検索"></td>
 </tr>
 </table>
@@ -60,7 +58,6 @@ $dbh=null;
 <table border="1" style="border-collapse: collapse">
 <tr>
 <th>名前</th>
-<th>区</th>
 <th>町</th>
 <th>土砂災害</th>
 <th>洪水</th>
@@ -72,7 +69,6 @@ $dbh=null;
 <?php foreach ($rec_list as $rec) { ?>
 <tr>
 <td><?php echo $rec['name'];?></td>
-<td><?php echo $rec['district'];?></td>
 <td><?php echo $rec['town'];?></td>
 <td><?php echo $rec['dosha'];?></td>
 <td><?php echo $rec['kouzui'];?></td>
