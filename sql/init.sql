@@ -23,125 +23,95 @@ drop table if exists items;
 # テーブルitemsの作成
 create table items(
     name varchar(50) not null,
-    town	varchar(50) not null,
+    town varchar(50) not null,
+    telephone varchar(50) not null,
     dosha varchar(10) not null,
     kouzui varchar(10) not null,
     tunami varchar(10) not null,
+    Shelter varchar(10) not null,
     petto varchar(10) not null
     );
     
 #テーブルitemsへデータを入力
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘高校','深江北町', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('神戸大学海洋政策科学部','深江南町', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('魚崎小学校','魚崎中町', 'yes', 'yes', 'yes', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('灘中・高校','魚崎中町', 'yes', 'yes', 'yes', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-	values('東灘小学校','深江北町', 'yes', 'yes', 'yes', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄小学校','青木', 'yes', 'yes', 'no', 'no');
-insert into items(name, town, dosha, kouzui, tunami, petto)
-    values('本庄中学校','青木', 'yes', 'yes', 'no', 'yes');
+INSERT INTO items (name, town, telephone, dosha, kouzui, tunami, Shelter, petto)
+VALUES
+('東灘小学校', '深江北町', '078-411-0556','○', '○', '○', '○', '×'),
+('本庄小学校', '青木', '078-411-0339', '○', '○', '×', '○', '×'),
+('本庄中学校', '青木', '078-411-2261', '○', '○', '×', '○', '○'),
+('東灘高校', '深江浜町', '078-452-9600', '○', '○', '×', '○', '○'),
+('神戸大学海洋政策科学部', '深江南町', '078-431-6200', '○', '○', '×', '○', '×'),
+('魚崎小学校', '魚崎中町', '078-411-6196', '○', '○', '○', '○', '○'),
+('灘中・高校', '魚崎北町', '078-411-7234', '○', '○', '○', '○', '×'),
+('本山第一小学校', '本山北町', '078-411-1974', '○', '○', '○', '○', '○'),
+('甲南女子中・高校', '森北町', '078-411-2531', '○', '○', '○', '○', '×'),
+('甲南女子大学', '森北町', '078-431-0391', '○', '○', '○', '×', '×'),
+('神戸薬科大学', '本山北町', '078-453-0031', '△', '○', '○', '×', '×'),
+('本山第二小学校', '西岡本', '078-431-1441', '○', '○', '○', '○', '×'),
+('本山中学校', '岡本', '078-411-3742', '○', '○', '○', '○', '×'),
+('甲南大学', '岡本', '078-431-4341', '△', '○', '○', '×', '×'),
+('本山第三小学校', '本山中町', '078-411-0005', '○', '○', '○', '○', '×'),
+('住吉小学校', '住吉東町', '078-851-2887', '○', '〇', '○', '○', '○'),
+('住之江公民館', '住吉宮町', '078-822-1300', '○', '〇', '○', '○', '×'),
+('住之江公民館別館', '住吉宮町', '078-822-1300', '○', '〇', '○', '○', '×'),
+('呉田会館', '住吉南町', '078-841-4060', '○', '○', '○', '○', '×'),
+('御影小学校', '御影石町', '078-851-3673', '○', '○', '○', '○', '×'),
+('御影高校', '御影石町', '078-841-1501', '○', '○', '○', '○', '○'),
+('御影公会堂', '御影石町', '078-841-2281', '○', '○', '○', '○', '○'),
+('御影北小学校', '御影山手', '078-851-6809', '○', '○', '○', '○', '×'),
+('頌栄短期大学', '御影山手', '078-842-2541', '△', '○', '○', '×', '×'),
+('渦が森小学校', '渦森台', '078-851-3185', '○', '○', '○', '○', '○'),
+('幼保連携型認定こども園同朋住吉台こども園', '住吉台', '078-846-6011', '○', '○', '○', '○', '○'),
+('六甲アイランド小学校', '向洋町中', '078-857-3121', '-', '-', '○', '○', '×'),
+('向洋中学校', '向洋町中', '078-857-2481', '-', '-', '○', '○', '○'),
+('六甲アイランド高校', '向洋町中', '078-858-4000', '-', '-', '○', '○', '×'),
+('福池小学校', '本山南町', '078-452-5595', '○', '○', '○', '○', '×'),
+('本山南小学校', '本山南町', '078-452-0071', '○', '○', '○', '○', '×'),
+('神戸大学白鴎寮', '本山南町', '078-431-6231', '○', '△', '○', '×', '×'),
+('向洋小学校', '向洋町中', '078-857-2450', '-', '-', '○', '○', '○'),
+('甲南小学校', '住吉本町', '078-841-1201', '○', '○', '○', '○', '○'),
+('神大附属中等教育学校', '住吉山手', '078-811-0232', '○', '○', '○', '○', '○'),
+('本山南中学校', '田中町', '078-412-2033', '○', '○', '○', '○', '○'),
+('住吉中学校', '住吉山手', '078-851-3752', '○', '○', '○', '○', '×'),
+('御影中学校', '御影中町', '078-841-2541', '○', '○', '○', '○', '○'),
+('魚崎中学校', '魚崎南町', '078-411-1631', '○', '×', '×', '○', '○'),
+('東灘体育館', '魚崎南町', '078-452-9279', '○', '×', '×', '○', '×');
+
+# データベースの選択
+USE seisaku;
+# テーブルitems2の作成
+drop table if exists items;
+# テーブルitems2の作成
+create table items2(
+    name varchar(50) not null,
+    town varchar(50) not null,
+    telephone varchar(50) not null,
+    dosha varchar(10) not null,
+    kouzui varchar(10) not null,
+    tunami varchar(10) not null,
+    Shelter varchar(10) not null,
+    petto varchar(10) not null
+    );
+INSERT INTO items2(name, town, tunami, fire, petto)
+VALUES
+    ('本庄小学校グラウンド', '青木', '×', '○', '△'),
+    ('本庄中学校グラウンド', '青木', '×', '○', '○'),
+    ('本庄中央公園', '青木', '×', '○', '○'),
+    ('神戸大学テニスコート', '青木', '×', '○', '△'),
+    ('本山第二小学校グラウンド', '西岡本', '○', '○', '△'),
+    ('本山中学校グラウンド', '岡本', '○', '○', '△'),
+    ('住吉小学校グラウンド', '住吉東町', '○', '○', '○'),
+    ('住吉宮町公園', '住吉宮町', '○', '○', '○'),
+    ('住吉公園', '住吉宮町', '○', '○', '○'),
+    ('御影小学校グラウンド', '御影石町', '○', '○', '△'),
+    ('御影幼稚園グラウンド', '御影石町', '○', '○', '△'),
+    ('渦が森小学校グラウンド', '渦森台', '○', '○', '○'),
+    ('福池小学校グラウンド', '本山南町', '○', '○', '△'),
+    ('小寄公園', '本山南町', '○', '○', '○'),
+    ('神大附属中等教育学校グラウンド', '住吉山手', '○', '○', '○'),
+    ('本山南中学校グラウンド', '田中町', '○', '○', '○'),
+    ('手水公園', '田中町', '○', '○', '○'),
+    ('御影中学校グラウンド', '御影中町', '○', '○', '○'),
+    ('御影公園', '御影中町', '○', '○', '○'),
+    ('魚崎中学校グラウンド', '魚崎南町', '×', '○', '○'),
+    ('瀬戸公園', '魚崎南町', '×', '○', '○'),
+    ('森公園', '森南町', '○', '○', '○');
