@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <header>
         <div class="header-container">
             <h1>防災宝典</h1>
@@ -31,6 +32,13 @@
     </nav>
     <div class="main-contents">
         <div class="main-contents-container">
+            <form method="POST" action="./src/kensaku.php" class="search_container">
+                <input type="text" size="25" placeholder="　キーワード検索">
+                <input type="submit" value="検索">
+              </form>
+
+              
+
             <div id="map" style="width: 100%; height: 400px;"></div>
             <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaV70vyctWFRPUAsEevKY6SXbyTgqyvFQ&callback=initMap&v=weekly"
@@ -51,6 +59,7 @@
                 }
             </script>
         </div>
+        
     </div>
     </div>
     </div>
