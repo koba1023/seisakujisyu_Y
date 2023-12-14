@@ -51,7 +51,9 @@
     }
 
     #username-input,
+    #title-input,
     #location-input,
+    #reply-username-input,
     #message-input {
         width: calc(100% - 30px);
         margin: 15px;
@@ -125,6 +127,7 @@
     }
 
     .reply-input,
+    .reply-username-input,
     .reply-button {
         width: calc(100% - 30px);
         margin: 5px 15px;
@@ -174,10 +177,11 @@
         <div id="messages"></div>
 
         <form id="message-form">
+            <input type="text" id="title-input" placeholder="募集内容を入力してください">
             <input type="text" id="username-input" placeholder="ユーザー名を入力してください">
             <!-- 場所の入力欄を追加 -->
             <input type="text" id="location-input" placeholder="場所を入力してください">
-            <textarea id="message-input" placeholder="ここにメッセージを入力してください"></textarea>
+            <textarea id="message-input" placeholder="募集内容について詳しく入力してください"></textarea>
             <button type="button" id="send-button" onclick="sendMessage()">送信</button>
         </form>
         <div class="toggle-button" onclick="toggleTerms()">利用規約を表示/非表示</div>
@@ -218,40 +222,40 @@
 
 
     <script>
-        function sendMessage() {
+         function sendMessage() {
             var usernameInput = document.getElementById('username-input');
+            var titleInput = document.getElementById('title-input');
             var locationInput = document.getElementById('location-input');
             var messageInput = document.getElementById('message-input');
             var username = usernameInput.value;
+            var title = titleInput.value;
             var location = locationInput.value;
             var message = messageInput.value;
 
             var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'save_data.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    // データを送信
-    var data = 'username=' + encodeURIComponent(username) +
+            xhr.open('POST', 'save_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            var data = 'username=' + encodeURIComponent(username) +
+                '&title=' + encodeURIComponent(title) +
                 '&location=' + encodeURIComponent(location) +
                 '&message=' + encodeURIComponent(message);
-    xhr.send(data);
+            xhr.send(data);
 
-    // レスポンスを処理（これもカスタマイズ可能です）
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText); // 現時点ではシンプルなアラートを表示します
-        }
-    };
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert(xhr.responseText);
+                }
+            };
 
-            if (username.trim() !== '' && location.trim() !== '' && message.trim() !== '') {
+            if (username.trim() !== '' && title.trim() !== '' && location.trim() !== '' && message.trim() !== '') {
                 var messagesContainer = document.getElementById('messages');
                 var card = document.createElement('div');
                 card.className = 'card';
-                var messageId = 'message' + Date.now(); // Generate a unique ID for each message
+                var messageId = 'message' + Date.now();
 
                 var cardHeader = document.createElement('div');
                 cardHeader.className = 'card-header';
-                cardHeader.textContent = username;
+                cardHeader.textContent = title + ' - ' + username; // タイトルとユーザー名を表示
 
                 var locationParagraph = document.createElement('p');
                 locationParagraph.className = 'location-paragraph';
@@ -280,6 +284,7 @@
 
                 // メッセージを追加したら、全ての入力欄をクリア
                 usernameInput.value = '';
+                titleInput.value = '';
                 locationInput.value = '';
                 messageInput.value = '';
 
