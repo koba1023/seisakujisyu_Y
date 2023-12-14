@@ -1,18 +1,31 @@
-drop table if exists users;
-create table users(
-    userId	      varchar(50) primary key,
-    userName	    varchar(50) not null,
-    kana	        varchar(50) not null,
-    zip           char(7) default '',
-    address			  varchar(50) default '',
-    tel				    varchar(20) default '',
-    password      varchar(20)
-);
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- ホスト: 127.0.0.1
+-- 生成日時: 2023-12-14 11:37:25
+-- サーバのバージョン： 10.4.28-MariaDB
+-- PHP のバージョン: 8.2.4
 
-# テーブルusersへデータを入力
-insert into users(userId, userName, kana, zip, address, tel, password)
- values('kobe@denshi.net', '神戸　電子', 'コウベ　デンシ', '6500002', '北野町1-1-8',
- '078-242-0014', 'kobedenshi');
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- データベース: `seisaku`
+--
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `higasinadaku_items0`
+--
 
  # 新しいデータベースの作成
 CREATE DATABASE IF NOT EXISTS seisaku;
