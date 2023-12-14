@@ -101,20 +101,40 @@ $dbh = null;
 ?>
 
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
     <meta charset="UTF-8">
 </head>
 <body>
 <!--検索-->
 <form action="higasinadaku.php" method="POST">
-<table border="1" style="border-collapse: collapse">
-<tr>
-<th>町検索</th>
-<td><input type="text" name="search_town" value="<?php if (!empty($_POST['search_town'])) { echo $_POST['search_town']; } ?>"></td>
-<td><input type="submit" name="search" value="検索"></td>
-</tr>
-</table>
+    <table border="1" style="border-collapse: collapse">
+        <tr>
+            <th>町検索</th>
+            <td>
+                <!-- データベースから町の一覧を取得 -->
+                <?php
+                $townOptions = array(); // 町の選択肢を格納する配列
+                foreach ($rec_list_items as $rec) {
+                    $townOptions[] = $rec['town'];
+                }
+                foreach ($rec_list_items1 as $rec) {
+                    $townOptions[] = $rec['town'];
+                }
+                $townOptions = array_unique($townOptions); // 重複を除去
+                sort($townOptions); // ソート
+                ?>
+
+                <select name="search_town">
+                    <option value="">町を選択してください</option>
+                    <?php foreach ($townOptions as $town) : ?>
+                        <option value="<?php echo $town; ?>" <?php if (!empty($_POST['search_town']) && $_POST['search_town'] == $town) echo 'selected'; ?>><?php echo $town; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+            <td><input type="submit" name="search" value="検索"></td>
+        </tr>
+    </table>
 </form>
 <br />
 <!--検索解除-->
