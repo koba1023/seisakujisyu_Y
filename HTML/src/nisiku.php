@@ -78,9 +78,9 @@ $dbh=null;
 <td><?php echo $rec['telephone'];?></td>
 <td><?php echo $rec['dosha'];?></td>
 <td><?php echo $rec['kouzui'];?></td>
-<td><?php echo $rec['tunami'];?></td>
+<td><?php echo $rec['tunami1'];?></td>
 <td><?php echo $rec['Shelter'];?></td>
-<td><?php echo $rec['petto'];?></td>
+<td><?php echo $rec['petto1'];?></td>
 </tr>
 <?php } ?>
 </table>
