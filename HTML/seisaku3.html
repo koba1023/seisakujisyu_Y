@@ -312,12 +312,21 @@
             var messageContainer = document.getElementById(messageId);
             var resolveButton = messageContainer.querySelector('.resolve-button');
 
+            if (messageContainer.classList.contains('resolved')) {
+                return;
+            }
             // 解決表示ボタンのテキストを変更
-            resolveButton.textContent = (resolveButton.textContent === '解決表示') ? '解決済み' : '解決表示';
+            resolveButton.textContent = (resolveButton.textContent === '解決表示') ? '解決済み' : '解決済み';
 
             // 解決表示のスタイルを切り替え
             messageContainer.classList.toggle('resolved');
+
+            resolveButton.disabled = true;
+        
         }
+
+  
+        
 
 
         function toggleTerms() {
