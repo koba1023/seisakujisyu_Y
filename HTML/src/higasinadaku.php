@@ -194,7 +194,7 @@ $dbh = null;
         </td>
         <!-- フィルターボタン -->
         <br>
-        <td><input type="submit" name="filter" value="フィルター"></td>
+        <td><input type="submit" name="filter" value="確定"></td>
         <!-- リセット -->
         <form action="higasinadaku.php" method="POST">
             <input type="submit" name="reset" value="リセット">
@@ -262,7 +262,7 @@ $dbh = null;
 
         <!-- フィルターボタン -->
         <br>
-        <td><input type="submit" name="filter" value="フィルター"></td>
+        <td><input type="submit" name="filter" value="確定"></td>
         <!-- リセット -->
         <form action="higasinadaku.php" method="POST">
             <input type="submit" name="reset" value="リセット">
