@@ -132,9 +132,9 @@ if (isset($_POST["search"])) {
 <tr>
 <td><?php echo $rec['name'];?></td>
 <td><?php echo $rec['town'];?></td>
-<td><?php echo $rec['tunami'];?></td>
+<td><?php echo $rec['tunami1'];?></td>
 <td><?php echo $rec['fire'];?></td>
-<td><?php echo $rec['petto'];?></td>
+<td><?php echo $rec['petto1'];?></td>
 </tr>
 <?php } ?>
 </table>
