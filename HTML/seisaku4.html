@@ -41,12 +41,43 @@
         background-color: green;
         color: #fff;
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .useful-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: 5px;
+    }
+
+    .useful-button {
+        cursor: pointer;
+        background-color: red;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        margin-right: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .useful-button:hover {
+        background-color: purple;
+    }
+
+    .useful-count {
+        color: #555;
+        margin-left: 5px;
     }
 
     .card-body {
         padding: 15px;
     }
 
+    #title-input,
     #username-input,
     #message-input {
         width: calc(100% - 30px);
@@ -135,8 +166,9 @@
         <div id="messages"></div>
 
         <form id="message-form">
+            <input type="text" id="title-input" placeholder="タイトルを入力してください">
             <input type="text" id="username-input" placeholder="ユーザー名を入力してください">
-            <textarea id="message-input" placeholder="ここにメッセージを入力してください"></textarea>
+            <textarea id="message-input" placeholder="ここに体験談を入力してください"></textarea>
             <button type="button" id="send-button" onclick="sendMessage()">送信</button>
         </form>
         <div class="toggle-button" onclick="toggleTerms()">利用規約を表示/非表示</div>
@@ -178,30 +210,53 @@
 
     <script>
         function sendMessage() {
+            var titleInput = document.getElementById('title-input');
             var usernameInput = document.getElementById('username-input');
             var messageInput = document.getElementById('message-input');
+            var title = titleInput.value;
             var username = usernameInput.value;
             var message = messageInput.value;
 
-            if (username.trim() !== '' && message.trim() !== '') {
+            if (title.trim() !== '' && username.trim() !== '' && message.trim() !== '') {
                 var messagesContainer = document.getElementById('messages');
                 var card = document.createElement('div');
                 card.className = 'card';
 
                 var cardHeader = document.createElement('div');
                 cardHeader.className = 'card-header';
-                cardHeader.textContent = username;
+                cardHeader.textContent = title + ' - ' + username;
 
                 var cardBody = document.createElement('div');
                 cardBody.className = 'card-body';
                 cardBody.textContent = message;
 
+                var usefulSection = document.createElement('div');
+                usefulSection.className = 'useful-section';
+
+                var usefulButton = document.createElement('button');
+                usefulButton.className = 'useful-button';
+                var count = 0; // ボタンが押された回数を保持する変数
+                usefulButton.textContent = '❤' + count;
+                usefulButton.addEventListener('click', function () {
+                count++;
+                usefulButton.textContent = '❤' + count;
+            });
+
+                var usefulCount = document.createElement('span');
+                usefulCount.className = 'useful-count';
+                usefulCount.textContent = '';
+
+                usefulSection.appendChild(usefulButton);
+                usefulSection.appendChild(usefulCount);
+
                 card.appendChild(cardHeader);
                 card.appendChild(cardBody);
+                card.appendChild(usefulSection);
 
                 messagesContainer.appendChild(card);
 
                 // メッセージを追加した後、入力欄をクリアする
+                titleInput.value = '';
                 usernameInput.value = '';
                 messageInput.value = '';
 
@@ -209,10 +264,13 @@
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
         }
+
         function toggleTerms() {
             var terms = document.getElementById('terms');
             terms.style.display = (terms.style.display === 'none' || terms.style.display === '') ? 'block' : 'none';
         }
+
+        
     </script>
     <footer>
         <div class="footer-container">
@@ -222,3 +280,4 @@
 </body>
 
 </html>
+
