@@ -17,6 +17,11 @@ $fire = isset($_POST['fire']) ? $_POST['fire'] : '';
 $tunami1 = isset($_POST['tunami1']) ? $_POST['tunami1'] : '';
 $petto1 = isset($_POST['petto1']) ? $_POST['petto1'] : '';
 
+// リセットボタンの処理
+if (isset($_POST['reset'])) {
+    $dosha = $kouzui = $tunami = $Shelter = $petto = $tunami1 = $fire = $petto1 = '';
+}
+
 // 検索クエリの条件を構築
 $searchConditions = [];
 $params = [];
@@ -187,9 +192,13 @@ $dbh = null;
             <label><input type="radio" name="petto" value="×" <?php if (isset($petto) && $petto === '×') echo 'checked'; ?>> ×</label>
             <label><input type="radio" name="petto" value="-" <?php if (isset($petto) && $petto === '-') echo 'checked'; ?>> -</label>
         </td>
-
         <!-- フィルターボタン -->
-        <td><input type="submit" name="filter" value="フィルター"></td>
+        <br>
+        <td><input type="submit" name="filter" value="確定"></td>
+        <!-- リセット -->
+        <form action="higasinadaku.php" method="POST">
+            <input type="submit" name="reset" value="リセット">
+        </form>
     </tr>
 </form>
 
@@ -252,7 +261,12 @@ $dbh = null;
         </td>
 
         <!-- フィルターボタン -->
-        <td><input type="submit" name="filter" value="フィルター"></td>
+        <br>
+        <td><input type="submit" name="filter" value="確定"></td>
+        <!-- リセット -->
+        <form action="higasinadaku.php" method="POST">
+            <input type="submit" name="reset" value="リセット">
+        </form>
     </tr>
 </form>
 
