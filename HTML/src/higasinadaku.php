@@ -1,65 +1,85 @@
 <?php
-//データベース接続
-$dsn='mysql:dbname=seisaku;host=localhost;charset=utf8';
-$user='root';
-$password='';
-$dbh=new PDO($dsn,$user,$password);
-$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
+// データベース接続
+$dsn = 'mysql:dbname=seisaku;host=localhost;charset=utf8';
+$user = 'root';
+$password = '';
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //「検索」ボタン押下時
 if (isset($_POST["search"])) {
 
-$search_town = $_POST["search_town"];
-
-// 実行（itemsテーブルからデータ取得）
-$sql_items = "SELECT * FROM higasinadaku_items0 WHERE town LIKE '%{$search_town}%'";
-$rec_items = $dbh->prepare($sql_items);
-$rec_items->execute();
-$rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
-
-// 実行（items2テーブルからデータ取得）
-$sql_items2 = "SELECT * FROM higasinadaku_items1 WHERE town LIKE '%{$search_town}%'";
-$rec_items2 = $dbh->prepare($sql_items2);
-$rec_items2->execute();
-$rec_list_items2 = $rec_items2->fetchAll(PDO::FETCH_ASSOC);
-} else {
-// 「検索」ボタン押下してないとき（itemsテーブルからデータ取得）
-$sql_items = 'SELECT * FROM higasinadaku_items0 WHERE 1';
-$rec_items = $dbh->prepare($sql_items);
-$rec_items->execute();
-$rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
-
-// （items2テーブルからデータ取得）
-$sql_items2 = 'SELECT * FROM higasinadaku_items1 WHERE 1';
-$rec_items2 = $dbh->prepare($sql_items2);
-$rec_items2->execute();
-$rec_list_items2 = $rec_items2->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-//データベース切断
-$dbh=null;
-?>
+    $search_town = $_POST["search_town"];
+    
+    // 実行（itemsテーブルからデータ取得）
+    $sql_items = "SELECT * FROM higasinadaku_items0 WHERE town LIKE '%{$search_town}%'";
+    $rec_items = $dbh->prepare($sql_items);
+    $rec_items->execute();
+    $rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
+    
+    // 実行（items2テーブルからデータ取得）
+    $sql_items1 = "SELECT * FROM higasinadaku_items1 WHERE town LIKE '%{$search_town}%'";
+    $rec_items1 = $dbh->prepare($sql_items1);
+    $rec_items1->execute();
+    $rec_list_items1 = $rec_items1->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+    // 「検索」ボタン押下してないとき（itemsテーブルからデータ取得）
+    $sql_items = 'SELECT * FROM higasinadaku_items0 WHERE 1';
+    $rec_items = $dbh->prepare($sql_items);
+    $rec_items->execute();
+    $rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
+    
+    // （items2テーブルからデータ取得）
+    $sql_items1 = 'SELECT * FROM higasinadaku_items1 WHERE 1';
+    $rec_items1 = $dbh->prepare($sql_items1);
+    $rec_items1->execute();
+    $rec_list_items1 = $rec_items1->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
+    //データベース切断
+    $dbh=null;
+    ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 </head>
 <body>
-
 <!--検索-->
 <form action="higasinadaku.php" method="POST">
-<table border="1" style="border-collapse: collapse">
-<tr>
-<th>町検索</th>
-<td><input type="text" name="search_town" value="<?php if (!empty($_POST['search_town'])) { echo $_POST['search_town']; } ?>"></td>
-<td><input type="submit" name="search" value="検索"></td>
-</tr>
-</table>
+    <table border="1" style="border-collapse: collapse">
+        <tr>
+            <th>町検索</th>
+            <td>
+                <!-- データベースから町の一覧を取得 -->
+                <?php
+                $townOptions = array(); // 町の選択肢を格納する配列
+                foreach ($rec_list_items as $rec) {
+                    $townOptions[] = $rec['town'];
+                }
+                foreach ($rec_list_items1 as $rec) {
+                    $townOptions[] = $rec['town'];
+                }
+                $townOptions = array_unique($townOptions); // 重複を除去
+                sort($townOptions); // ソート
+                ?>
+
+                <select name="search_town">
+                    <option value="">町を選択してください</option>
+                    <?php foreach ($townOptions as $town) : ?>
+                        <option value="<?php echo $town; ?>" <?php if (!empty($_POST['search_town']) && $_POST['search_town'] == $town) echo 'selected'; ?>><?php echo $town; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+            <td><input type="submit" name="search" value="検索"></td>
+        </tr>
+    </table>
 </form>
 <br />
+
+
 <p>○ その災害時に利用できる施設<br>
 △ 「備考」欄の注意事項を確認のうえ、緊急時のみ利用できる施設<br>
 × 原則利用できない施設<br>
@@ -108,7 +128,7 @@ $dbh=null;
 </tr>
 
 <!--MySQLデータを表示-->
-<?php foreach ($rec_list_items2 as $rec) { ?>
+<?php foreach ($rec_list_items1 as $rec) { ?>
 <tr>
 <td><?php echo $rec['name'];?></td>
 <td><?php echo $rec['town'];?></td>
