@@ -146,6 +146,11 @@
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
     }
+    .card.resolved {
+    border-color: blue; /* 解決済みのボーダーカラー */
+    background-color: gray; /* 解決済みの背景カラー */
+}
+
 
     .reply-button:hover {
         background-color: #218838; /* ホバー時の色も変更 */
@@ -253,10 +258,12 @@
                 card.className = 'card';
                 var messageId = 'message' + Date.now();
 
+                // タイトル、ユーザー名、場所を表示
                 var cardHeader = document.createElement('div');
                 cardHeader.className = 'card-header';
-                cardHeader.textContent = title + ' - ' + username; // タイトルとユーザー名を表示
+                cardHeader.textContent = title + ' - ' + username;
 
+                // 場所の表示を追加
                 var locationParagraph = document.createElement('p');
                 locationParagraph.className = 'location-paragraph';
                 locationParagraph.textContent = '場所: ' + location;
@@ -264,6 +271,14 @@
                 var cardBody = document.createElement('div');
                 cardBody.className = 'card-body';
                 cardBody.textContent = message;
+
+                // 投稿内容を表示する部分の色を変更するボタン
+                var resolveButton = document.createElement('button');
+                resolveButton.className = 'resolve-button';
+                resolveButton.textContent = '解決';
+                resolveButton.onclick = function () {
+                    toggleResolveStatus(messageId);
+                };
 
                 var replyButton = document.createElement('div');
                 replyButton.className = 'toggle-button';
@@ -275,6 +290,7 @@
                 card.appendChild(cardHeader);
                 card.appendChild(locationParagraph);
                 card.appendChild(cardBody);
+                card.appendChild(resolveButton);
                 card.appendChild(replyButton);
 
                 // Set a unique ID to the card for later reference
@@ -292,6 +308,17 @@
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
         }
+        function toggleResolveStatus(messageId) {
+            var messageContainer = document.getElementById(messageId);
+            var resolveButton = messageContainer.querySelector('.resolve-button');
+
+            // 解決表示ボタンのテキストを変更
+            resolveButton.textContent = (resolveButton.textContent === '解決表示') ? '解決済み' : '解決表示';
+
+            // 解決表示のスタイルを切り替え
+            messageContainer.classList.toggle('resolved');
+        }
+
 
         function toggleTerms() {
             var terms = document.getElementById('terms');
