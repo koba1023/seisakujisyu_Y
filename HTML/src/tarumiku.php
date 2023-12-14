@@ -18,11 +18,11 @@ $rec_items = $dbh->prepare($sql_items);
 $rec_items->execute();
 $rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
 
-// 実行（items2テーブルからデータ取得）
-$sql_items2 = "SELECT * FROM tarumiku_items1 WHERE town LIKE '%{$search_town}%'";
-$rec_items2 = $dbh->prepare($sql_items2);
-$rec_items2->execute();
-$rec_list_items2 = $rec_items2->fetchAll(PDO::FETCH_ASSOC);
+// 実行（items1テーブルからデータ取得）
+$sql_items1 = "SELECT * FROM tarumiku_items1 WHERE town LIKE '%{$search_town}%'";
+$rec_items1 = $dbh->prepare($sql_items1);
+$rec_items1->execute();
+$rec_list_items1 = $rec_items1->fetchAll(PDO::FETCH_ASSOC);
 } else {
 // 「検索」ボタン押下してないとき（itemsテーブルからデータ取得）
 $sql_items = 'SELECT * FROM tarumiku_items0 WHERE 1';
@@ -30,11 +30,11 @@ $rec_items = $dbh->prepare($sql_items);
 $rec_items->execute();
 $rec_list_items = $rec_items->fetchAll(PDO::FETCH_ASSOC);
 
-// （items2テーブルからデータ取得）
-$sql_items2 = 'SELECT * FROM tarumiku_items1 WHERE 1';
-$rec_items2 = $dbh->prepare($sql_items2);
-$rec_items2->execute();
-$rec_list_items2 = $rec_items2->fetchAll(PDO::FETCH_ASSOC);
+// （items1テーブルからデータ取得）
+$sql_items1 = 'SELECT * FROM tarumiku_items1 WHERE 1';
+$rec_items1 = $dbh->prepare($sql_items1);
+$rec_items1->execute();
+$rec_list_items1 = $rec_items1->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -108,7 +108,7 @@ $dbh=null;
 </tr>
 
 <!--MySQLデータを表示-->
-<?php foreach ($rec_list_items2 as $rec) { ?>
+<?php foreach ($rec_list_items1 as $rec) { ?>
 <tr>
 <td><?php echo $rec['name'];?></td>
 <td><?php echo $rec['town'];?></td>
