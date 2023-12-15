@@ -109,8 +109,192 @@ $dbh = null;
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>防災宝典</title>
+    <link href="../../_common/image/ページアイコン.ico" rel="shortcut icon"> <!--リンクのアイコン-->
 </head>
+
+<style>
+html {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 479px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+html * {
+    box-sizing: border-box;
+}
+header {
+    background: #000000;
+}
+.header-container {
+    padding: 30px 20px 10px 20px;
+}
+.header-container {
+    padding: 30px 20px 10px 20px;
+}
+
+.header-logo {
+    margin: 0 auto;
+    width: 50px;
+    height: 11px;
+    text-align: center;
+}
+
+.header-logo img {
+    width: 50px;
+    height: 11px;
+}
+nav {
+    background: #000000;
+}
+.btn4 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn4::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #3367ff;
+    display: block;
+    -webkit-transform-origin: right top;
+    -ms-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+}
+
+.btn4:hover::before {
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1)
+}
+
+.btn2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid #3367ff;
+}
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    /* 上下中央揃え */
+}
+
+.image-container {
+    flex: 1;
+    /* 左側（画像側）の幅を自動調整 */
+    margin-right: 20px;
+    /* 画像とテキストの間隔を設定 */
+}
+
+.image-container img {
+    max-width: 100%;
+    /* 画像の幅がコンテナに収まるように */
+    height: auto;
+    /* アスペクト比を維持 */
+}
+
+.text-container {
+    flex: 2;
+    /* 右側（テキスト側）の幅を自動調整 */
+}
+.check {
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+
+.check-list {
+    color: #000000;
+}
+
+.not-link {
+    background-image: linear-gradient(to right top, transparent calc(50% - 0.5px), #999 50%, #999 calc(50% + 0.5px), transparent calc(50% + 1px))
+}
+
+.check-list {
+    color: #000000;
+    font-size: 50px;
+}
+footer {}
+
+.footer-container {
+    padding: 30px 20px 10px 20px;
+    background: #000000;
+}
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    ul {
+    overflow: hidden;
+    list-style: none;
+    margin: 0 auto;
+    z-index: 20;
+}
+
+ul li {
+    display: inline-block;
+    padding: 26px 10px 20px 10px;
+}
+a {
+    color: #fff;
+    text-transform: uppercase;
+}
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+</style>
+
 <body>
+<header>
+    <div class="header-container">
+        <a href="#">
+            <img src="../../_common/image/logo.png" alt="防災宝典" width="300" height="150">
+        </a>
+    </div>
+</header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="globalnav">
+                <li><a href="../seisaku1.html" class="btn4">ホーム</a></li>
+                <li><a href="../seisaku2.html" class="btn2">避難場所一覧</a></li>
+                <li><a href="../seisaku3.html" class="btn4">ボランティア募集</a></li>
+                <li><a href="../seisaku4.html" class="btn4">掲示板</a></li>
+                <li><a href="../seisaku5.html" class="btn4">チェックリスト</a></li>
+                <li><a href="../src/seisaku6.html" class="btn4">ログイン</a></li>
+            </ul>
+        </div>
+    </nav>
 <!--検索-->
 <form action="higasinadaku.php" method="POST">
     <table border="1" style="border-collapse: collapse">
@@ -291,5 +475,10 @@ $dbh = null;
 <?php } ?>
 </table>
 
+<footer>
+    <div class="footer-container">
+
+    </div>
+</footer>
 </body>
 </html>
