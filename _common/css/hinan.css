@@ -150,9 +150,52 @@ a {
     color: #fff;
     text-transform: uppercase;
 }
+a[href="http://localhost/seisakujisyu_Y/HTML/src/higasinadaku.php"] {
+    color: blue;
+    text-transform: uppercase;
+}
 body {
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+select, input[type="text"], input[type="submit"], input[type="reset"] {
+    padding: 8px;
+    margin: 5px;
+}
+
+h2 {
+    color: #333;
+}
+
+
+
+a:hover {
+    text-decoration: underline;
 }
