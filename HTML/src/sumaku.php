@@ -26,6 +26,11 @@ $tunami1 = isset($_POST['tunami1']) ? $_POST['tunami1'] : '';
 $petto1 = isset($_POST['petto1']) ? $_POST['petto1'] : '';
 $list = isset($_POST['list']) ? $_POST['list'] : '';
 
+// リセットボタンの処理
+if (isset($_POST['reset'])){
+    $dosha = $kouzui = $tunami = $Shelter = $petto = $tunami1 = $fire = $petto1 = '';
+}
+
 // 検索クエリの条件を構築
 $searchConditions = [];
 $params = [];
@@ -114,8 +119,30 @@ $dbh = null;
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../_common/css/hinan.css">
+    <link rel="shortcut icon" href="../../_common/image/ページアイコン.ico"
 </head>
 <body>
+<header>
+        <div class="header-container">
+            <a href="#">
+                <img src="../../_common/image/logo.png" alt="防災宝典" width="300" height="150">
+            </a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="globalnav">
+                <li><a href="../seisaku1.html" class="btn4">ホーム</a></li>
+                <li><a href="../seisaku2.html" class="btn2">避難場所一覧</a></li>
+                <li><a href="../seisaku3.html" class="btn4">ボランティア募集</a></li>
+                <li><a href="../seisaku4.html" class="btn4">掲示板</a></li>
+                <li><a href="../seisaku5.html" class="btn4">チェックリスト</a></li>
+                <li><a href="../src/seisaku6.html" class="btn4">ログイン</a></li>
+            </ul>
+        </div>
+    </nav>
 <!-- 検索 -->
 <form action="sumaku.php" method="POST">
     <table border="1" style="border-collapse: collapse">
@@ -150,46 +177,51 @@ $dbh = null;
 <form action="sumaku.php" method="POST">
     <tr>
         <td>
-            <label>土砂災害</label>
-            <label><input type="radio" name="dosha" value="○" <?php if (isset($dosha) && $dosha === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="dosha" value="×" <?php if (isset($dosha) && $dosha === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="dosha" value="-" <?php if (isset($dosha) && $dosha === '-') echo 'checked'; ?>> -</label>
+            <label>土砂災害</label><br>
+            <input type="radio" name="dosha" value="○" id="a" <?php if (isset($dosha) && $dosha === '○') echo 'checked'; ?>><label class="dosha" for="a">〇</label>
+            <input type="radio" name="dosha" value="×" id="b" <?php if (isset($dosha) && $dosha === '×') echo 'checked'; ?>><label class="dosha" for="b">✕</label>
+            <input type="radio" name="dosha" value="-" id="c" <?php if (isset($dosha) && $dosha === '-') echo 'checked'; ?>><label class="dosha" for="c">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>洪水</label>
-            <label><input type="radio" name="kouzui" value="○" <?php if (isset($kouzui) && $kouzui === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="kouzui" value="×" <?php if (isset($kouzui) && $kouzui === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="kouzui" value="-" <?php if (isset($kouzui) && $kouzui === '-') echo 'checked'; ?>> -</label>
+            <label>洪水</label><br>
+            <input type="radio" name="kouzui" value="○" id="d" <?php if (isset($kouzui) && $kouzui === '○') echo 'checked'; ?>><label class="kouzui" for="d">〇</label>
+            <input type="radio" name="kouzui" value="×" id="e" <?php if (isset($kouzui) && $kouzui === '×') echo 'checked'; ?>><label class="kouzui" for="e">✕</label>
+            <input type="radio" name="kouzui" value="-" id="f" <?php if (isset($kouzui) && $kouzui === '-') echo 'checked'; ?>><label class="kouzui" for="f">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>津波</label>
-            <label><input type="radio" name="tunami" value="○" <?php if (isset($tunami) && $tunami === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="tunami" value="×" <?php if (isset($tunami) && $tunami === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="tunami" value="-" <?php if (isset($tunami) && $tunami === '-') echo 'checked'; ?>> -</label>
+            <label>津波</label><br>
+            <input type="radio" name="tunami" value="○" id="g" <?php if (isset($tunami) && $tunami === '○') echo 'checked'; ?>><label class="tunami" for="g">〇</label>
+            <input type="radio" name="tunami" value="×" id="h" <?php if (isset($tunami) && $tunami === '×') echo 'checked'; ?>><label class="tunami" for="h">✕</label>
+            <input type="radio" name="tunami" value="-" id="i" <?php if (isset($tunami) && $tunami === '-') echo 'checked'; ?>><label class="tunami" for="i">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>避難所としての利用</label>
-            <label><input type="radio" name="Shelter" value="○" <?php if (isset($Shelter) && $Shelter === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="Shelter" value="×" <?php if (isset($Shelter) && $Shelter === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="Shelter" value="-" <?php if (isset($Shelter) && $Shelter === '-') echo 'checked'; ?>> -</label>
+            <label>避難所としての利用</label><br>
+            <input type="radio" name="Shelter" value="○" id="j" <?php if (isset($Shelter) && $Shelter === '○') echo 'checked'; ?>><label class="Shelter" for="j">〇</label>
+            <input type="radio" name="Shelter" value="×" id="k" <?php if (isset($Shelter) && $Shelter === '×') echo 'checked'; ?>><label class="Shelter" for="k">✕</label>
+            <input type="radio" name="Shelter" value="-" id="l" <?php if (isset($Shelter) && $Shelter === '-') echo 'checked'; ?>><label class="Shelter" for="l">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>ペット</label>
-            <label><input type="radio" name="petto" value="○" <?php if (isset($petto) && $petto === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="petto" value="×" <?php if (isset($petto) && $petto === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="petto" value="-" <?php if (isset($petto) && $petto === '-') echo 'checked'; ?>> -</label>
+            <label>ペット</label><br>
+            <input type="radio" name="petto" value="○" id="m" <?php if (isset($petto) && $petto === '○') echo 'checked'; ?>><label class="petto" for="m">〇</label>
+            <input type="radio" name="petto" value="×" id="n" <?php if (isset($petto) && $petto === '×') echo 'checked'; ?>><label class="petto" for="n">✕</label>
+            <input type="radio" name="petto" value="-" id="o" <?php if (isset($petto) && $petto === '-') echo 'checked'; ?>><label class="petto" for="o">ー</label>
         </td>
 
         <!-- フィルターボタン -->
+        <br>
         <td><input type="submit" name="filter" value="フィルター"></td>
+        <!-- リセットボタン -->
+        <form action="sumaku.php" method="POST">
+            <input type="submit" name="reset" value="リセット">
+        </form>
     </tr>
 </form>
 
@@ -229,30 +261,34 @@ $dbh = null;
 <form action="sumaku.php" method="POST">
     <tr>
         <td>
-            <label>津波</label>
-            <label><input type="radio" name="tunami1" value="○" <?php if (isset($tunami1) && $tunami1 === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="tunami1" value="×" <?php if (isset($tunami1) && $tunami1 === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="tunami1" value="-" <?php if (isset($tunami1) && $tunami1 === '-') echo 'checked'; ?>> -</label>
+            <label>津波</label><br>
+            <input type="radio" name="tunami1" value="○" id="p" <?php if (isset($tunami1) && $tunami1 === '○') echo 'checked'; ?>><label class="tunami1" for="p">〇</label>
+            <input type="radio" name="tunami1" value="×" id="q" <?php if (isset($tunami1) && $tunami1 === '×') echo 'checked'; ?>><label class="tunami1" for="q">✕</label>
+            <input type="radio" name="tunami1" value="-" id="r" <?php if (isset($tunami1) && $tunami1 === '-') echo 'checked'; ?>><label class="tunami1" for="r">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
-            <br>
-            <label>火災</label>
-            <label><input type="radio" name="fire" value="○" <?php if (isset($fire) && $fire === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="fire" value="×" <?php if (isset($fire) && $fire === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="fire" value="-" <?php if (isset($fire) && $fire === '-') echo 'checked'; ?>> -</label>
+        <br>
+            <label>火災</label><br>
+            <input type="radio" name="fire" value="○" id="s" <?php if (isset($fire) && $fire === '○') echo 'checked'; ?>><label class="fire" for="s">〇</label>
+            <input type="radio" name="fire" value="×" id="t" <?php if (isset($fire) && $fire === '×') echo 'checked'; ?>><label class="fire" for="t">✕</label>
+            <input type="radio" name="fire" value="-" id="u" <?php if (isset($fire) && $fire === '-') echo 'checked'; ?>><label class="fire" for="u">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
-            <br>
-            <label>ペット</label>
-            <label><input type="radio" name="petto1" value="○" <?php if (isset($petto1) && $petto1 === '○') echo 'checked'; ?>> 〇</label>
-            <label><input type="radio" name="petto1" value="×" <?php if (isset($petto1) && $petto1 === '×') echo 'checked'; ?>> ×</label>
-            <label><input type="radio" name="petto1" value="-" <?php if (isset($petto1) && $petto1 === '-') echo 'checked'; ?>> -</label>
+        <br>
+            <label>ペット</label><br>
+            <input type="radio" name="petto1" value="○" id="v" <?php if (isset($petto1) && $petto1 === '○') echo 'checked'; ?>><label class="petto1" for="v">〇</label>
+            <input type="radio" name="petto1" value="×" id="w" <?php if (isset($petto1) && $petto1 === '×') echo 'checked'; ?>><label class="petto1" for="w">✕</label>
+            <input type="radio" name="petto1" value="-" id="x" <?php if (isset($petto1) && $petto1 === '-') echo 'checked'; ?>><label class="petto1" for="x">ー</label>
         </td>
-
+        <br>
         <!-- フィルターボタン -->
         <td><input type="submit" name="filter" value="フィルター"></td>
+        <!-- リセットボタン -->
+        <form action="sumaku.php" method="POST">
+            <input type="submit" name="reset" value="リセット">
+        </form>
     </tr>
 </form>
 
@@ -276,6 +312,10 @@ $dbh = null;
 </tr>
 <?php } ?>
 </table>
-
+<footer>
+    <div class="footer-container">
+        
+    </div>
+</footer>
 </body>
 </html>

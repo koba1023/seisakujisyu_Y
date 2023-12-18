@@ -26,6 +26,11 @@ $tunami1 = isset($_POST['tunami1']) ? $_POST['tunami1'] : '';
 $petto1 = isset($_POST['petto1']) ? $_POST['petto1'] : '';
 $list = isset($_POST['list']) ? $_POST['list'] : '';
 
+// リセットボタンの処理
+if (isset($_POST['reset'])){
+    $dosha = $kouzui = $tunami = $Shelter = $petto = $tunami1 = $fire = $petto1 = '';
+}
+
 // 検索クエリの条件を構築
 $searchConditions = [];
 $params = [];
@@ -114,8 +119,30 @@ $dbh = null;
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../_common/css/hinan.css">
+    <link rel="shortcut icon" href="../../_common/image/ページアイコン.ico"
 </head>
 <body>
+<header>
+        <div class="header-container">
+            <a href="#">
+                <img src="../../_common/image/logo.png" alt="防災宝典" width="300" height="150">
+            </a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="globalnav">
+                <li><a href="../seisaku1.html" class="btn4">ホーム</a></li>
+                <li><a href="../seisaku2.html" class="btn2">避難場所一覧</a></li>
+                <li><a href="../seisaku3.html" class="btn4">ボランティア募集</a></li>
+                <li><a href="../seisaku4.html" class="btn4">掲示板</a></li>
+                <li><a href="../seisaku5.html" class="btn4">チェックリスト</a></li>
+                <li><a href="../src/seisaku6.html" class="btn4">ログイン</a></li>
+            </ul>
+        </div>
+    </nav>
 <!-- 検索 -->
 <form action="higasinadaku.php" method="POST">
     <table border="1" style="border-collapse: collapse">
@@ -189,7 +216,12 @@ $dbh = null;
         </td>
 
         <!-- フィルターボタン -->
+        <br>
         <td><input type="submit" name="filter" value="フィルター"></td>
+        <!-- リセットボタン -->
+        <form action="higasinadaku.php" method="POST">
+            <input type="submit" name="reset" value="リセット">
+        </form>
     </tr>
 </form>
 
@@ -229,30 +261,34 @@ $dbh = null;
 <form action="higasinadaku.php" method="POST">
     <tr>
         <td>
-            <label>津波</label>
+            <label>津波</label><br>
             <input type="radio" name="tunami1" value="○" id="p" <?php if (isset($tunami1) && $tunami1 === '○') echo 'checked'; ?>><label class="tunami1" for="p">〇</label>
             <input type="radio" name="tunami1" value="×" id="q" <?php if (isset($tunami1) && $tunami1 === '×') echo 'checked'; ?>><label class="tunami1" for="q">✕</label>
             <input type="radio" name="tunami1" value="-" id="r" <?php if (isset($tunami1) && $tunami1 === '-') echo 'checked'; ?>><label class="tunami1" for="r">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
-            <br>
-            <label>火災</label>
+        <br>
+            <label>火災</label><br>
             <input type="radio" name="fire" value="○" id="s" <?php if (isset($fire) && $fire === '○') echo 'checked'; ?>><label class="fire" for="s">〇</label>
             <input type="radio" name="fire" value="×" id="t" <?php if (isset($fire) && $fire === '×') echo 'checked'; ?>><label class="fire" for="t">✕</label>
             <input type="radio" name="fire" value="-" id="u" <?php if (isset($fire) && $fire === '-') echo 'checked'; ?>><label class="fire" for="u">ー</label>
         </td>
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
-            <br>
-            <label>ペット</label>
+        <br>
+            <label>ペット</label><br>
             <input type="radio" name="petto1" value="○" id="v" <?php if (isset($petto1) && $petto1 === '○') echo 'checked'; ?>><label class="petto1" for="v">〇</label>
             <input type="radio" name="petto1" value="×" id="w" <?php if (isset($petto1) && $petto1 === '×') echo 'checked'; ?>><label class="petto1" for="w">✕</label>
             <input type="radio" name="petto1" value="-" id="x" <?php if (isset($petto1) && $petto1 === '-') echo 'checked'; ?>><label class="petto1" for="x">ー</label>
         </td>
-
+        <br>
         <!-- フィルターボタン -->
         <td><input type="submit" name="filter" value="フィルター"></td>
+        <!-- リセットボタン -->
+        <form action="higasinadaku.php" method="POST">
+            <input type="submit" name="reset" value="リセット">
+        </form>
     </tr>
 </form>
 
@@ -276,6 +312,10 @@ $dbh = null;
 </tr>
 <?php } ?>
 </table>
-
+<footer>
+    <div class="footer-container">
+        
+    </div>
+</footer>
 </body>
 </html>
