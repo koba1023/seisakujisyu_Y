@@ -317,7 +317,7 @@ $dbh = null;
 <footer>
     <div class="footer-container">
     <a href="../src/higasinadaku.php">東灘区</a>
-    <a href="../src/nadaku.php">灘区区</a>
+    <a href="../src/nadaku.php">灘区</a>
     <a href="../src/hyougoku.php">兵庫区</a>
     <a href="../src/kitaku.php">北区</a>
     <a href="../src/nagataku.php">長田区</a>
