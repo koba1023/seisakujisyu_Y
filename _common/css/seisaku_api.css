@@ -417,3 +417,14 @@ p{
     /*ボックスの影*/  
     box-shadow: 0 15px 15px rgba(57,250,215,0.4);
 }
+
+.flex {
+    display: flex;
+    justify-content: space-between; /* 要素間の均等な間隔を設定 */
+    flex-wrap: wrap; /* 要素が横に並びきれない場合、次の行に移動 */
+    padding: 0 300px; /* 横方向の間*/
+}
+
+.flex a {
+    margin: 10px; /* 画像間の余白を微調整 */
+}
