@@ -3,64 +3,31 @@
 let map, geocoder;
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 35.6804, lng: 139.7690 },
-        zoom: 12,
-    });
-    infoWindow = new google.maps.InfoWindow();
-
-    // 現在位置の取得
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent("現在位置");
-                infoWindow.open(map);
-                map.setCenter(pos);
-
-                // 避難場所の検索
-                const service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(
-                    {
-                        location: pos,
-                        radius: 5000, // 検索半径（メートル）
-                        keyword: "避難所", // 検索キーワード
-                    },
-                    (results, status) => {
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-                            for (let i = 0; i < results.length; i++) {
-                                createMarker(results[i]);
-                            }
-                        }
-                    }
-                );
-            },
-            () => {
-                handleLocationError(true, infoWindow, map.getCenter());
-            }
-        );
-    } else {
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
-}
-
-function createMarker(place) {
-    const marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location,
-        title: place.name,
+    const kobeCoords = { lat: 34.6913, lng: 135.1830 }; // 神戸市の緯度経度座標
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: kobeCoords, // 神戸市を中心に設定
+        zoom: 12, // ズームレベルを調整
     });
 
-    const infowindow = new google.maps.InfoWindow({
-        content: place.name,
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer({
+        map,
     });
 
-    marker.addListener("click", () => {
-        infowindow.open(map, marker);
+    const start = "神戸市の出発地点"; // 出発地点の住所など
+    const end = "神戸市の到着地点"; // 到着地点の住所など
+
+    const request = {
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING, // 移動手段を指定
+    };
+
+    directionsService.route(request, function (result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(result);
+        } else {
+            window.alert("Directions request failed due to " + status);
+        }
     });
 }

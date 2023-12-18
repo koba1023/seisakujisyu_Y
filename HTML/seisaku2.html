@@ -53,39 +53,36 @@
                 <input type="text" size="25" placeholder="　キーワード検索">
                 <input type="submit" value="検索">
             </form>
-
-
-
-            <div id="map" style="width: 100%; height: 400px;"></div>
-            <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaV70vyctWFRPUAsEevKY6SXbyTgqyvFQ&callback=initMap&v=weekly"
-                defer></script>
-            <script>
-                function initMap() {
-                    const map = new google.maps.Map(document.getElementById("map"), {
-                        center: { lat: 35.6804, lng: 139.7690 }, // ここを日本の中心に設定（例）
-                        zoom: 8,
-                    });
-
-                    // マーカーを追加する
-                    const marker = new google.maps.Marker({
-                        position: { lat: 35.6804, lng: 139.7690 }, // マーカーの座標（例）
-                        map: map,
-                        title: '避難所' // マーカーにマウスをホバーした時のタイトル（例）
-                    });
-                }
-            </script>
         </div>
+        <a href="src/higasinadaku.php">東灘区</a>
+        <a href="src/nadaku.php">灘区</a>
+        <a href="src/tyuuouku.php">中央区</a>
+        <a href="src/hyougoku.php">兵庫区</a>
+        <a href="src/kitaku.php">北区</a>
+        <a href="src/nagataku.php">長田区</a>
+        <a href="src/sumaku.php">須磨区</a>
+        <a href="src/tarumiku.php">垂水区</a>
+        <a href="src/nisiku.php">西区</a>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaV70vyctWFRPUAsEevKY6SXbyTgqyvFQ&callback=initMap&v=weekly"
+            defer></script>
+        <script>
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: 35.6804, lng: 139.7690 }, // ここを日本の中心に設定（例）
+                    zoom: 8,
+                });
+
+                // マーカーを追加する
+                const marker = new google.maps.Marker({
+                    position: { lat: 35.6804, lng: 139.7690 }, // マーカーの座標（例）
+                    map: map,
+                    title: '避難所' // マーカーにマウスをホバーした時のタイトル（例）
+                });
+            }
+        </script>
     </div>
-    <a href="src/higasinadaku.php">東灘区</a>
-    <a href="src/nadaku.php">灘区</a>
-    <a href="src/tyuuouku.php">中央区</a>
-    <a href="src/hyougoku.php">兵庫区</a>
-    <a href="src/kitaku.php">北区</a>
-    <a href="src/nagataku.php">長田区</a>
-    <a href="src/sumaku.php">須磨区</a>
-    <a href="src/tarumiku.php">垂水区</a>
-    <a href="src/nisiku.php">西区</a>
     <script src="../_common/script/jquery-3.7.1.min.js"></script>
     <script src="../_common/script/mapscript.js"></script>
     <footer>
