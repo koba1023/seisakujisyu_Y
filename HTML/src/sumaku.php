@@ -119,6 +119,7 @@ $dbh = null;
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>防災宝典</title>
     <link rel="stylesheet" href="../../_common/css/hinan.css">
     <link rel="shortcut icon" href="../../_common/image/ページアイコン.ico"
 </head>
@@ -143,6 +144,8 @@ $dbh = null;
             </ul>
         </div>
     </nav>
+    <h2>須磨区</h2>
+
 <!-- 検索 -->
 <form action="sumaku.php" method="POST">
     <table border="1" style="border-collapse: collapse">
@@ -177,7 +180,7 @@ $dbh = null;
 <form action="sumaku.php" method="POST">
     <tr>
         <td>
-            <label>土砂災害</label><br>
+            <h3>土砂災害</h3><br>
             <input type="radio" name="dosha" value="○" id="a" <?php if (isset($dosha) && $dosha === '○') echo 'checked'; ?>><label class="dosha" for="a">〇</label>
             <input type="radio" name="dosha" value="×" id="b" <?php if (isset($dosha) && $dosha === '×') echo 'checked'; ?>><label class="dosha" for="b">✕</label>
             <input type="radio" name="dosha" value="-" id="c" <?php if (isset($dosha) && $dosha === '-') echo 'checked'; ?>><label class="dosha" for="c">ー</label>
@@ -185,7 +188,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>洪水</label><br>
+            <h3>洪水</h3><br>
             <input type="radio" name="kouzui" value="○" id="d" <?php if (isset($kouzui) && $kouzui === '○') echo 'checked'; ?>><label class="kouzui" for="d">〇</label>
             <input type="radio" name="kouzui" value="×" id="e" <?php if (isset($kouzui) && $kouzui === '×') echo 'checked'; ?>><label class="kouzui" for="e">✕</label>
             <input type="radio" name="kouzui" value="-" id="f" <?php if (isset($kouzui) && $kouzui === '-') echo 'checked'; ?>><label class="kouzui" for="f">ー</label>
@@ -193,7 +196,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>津波</label><br>
+            <h3>津波</h3><br>
             <input type="radio" name="tunami" value="○" id="g" <?php if (isset($tunami) && $tunami === '○') echo 'checked'; ?>><label class="tunami" for="g">〇</label>
             <input type="radio" name="tunami" value="×" id="h" <?php if (isset($tunami) && $tunami === '×') echo 'checked'; ?>><label class="tunami" for="h">✕</label>
             <input type="radio" name="tunami" value="-" id="i" <?php if (isset($tunami) && $tunami === '-') echo 'checked'; ?>><label class="tunami" for="i">ー</label>
@@ -201,7 +204,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>避難所としての利用</label><br>
+            <h3>避難所としての利用</h3><br>
             <input type="radio" name="Shelter" value="○" id="j" <?php if (isset($Shelter) && $Shelter === '○') echo 'checked'; ?>><label class="Shelter" for="j">〇</label>
             <input type="radio" name="Shelter" value="×" id="k" <?php if (isset($Shelter) && $Shelter === '×') echo 'checked'; ?>><label class="Shelter" for="k">✕</label>
             <input type="radio" name="Shelter" value="-" id="l" <?php if (isset($Shelter) && $Shelter === '-') echo 'checked'; ?>><label class="Shelter" for="l">ー</label>
@@ -209,7 +212,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
             <br>
-            <label>ペット</label><br>
+            <h3>ペット</h3><br>
             <input type="radio" name="petto" value="○" id="m" <?php if (isset($petto) && $petto === '○') echo 'checked'; ?>><label class="petto" for="m">〇</label>
             <input type="radio" name="petto" value="×" id="n" <?php if (isset($petto) && $petto === '×') echo 'checked'; ?>><label class="petto" for="n">✕</label>
             <input type="radio" name="petto" value="-" id="o" <?php if (isset($petto) && $petto === '-') echo 'checked'; ?>><label class="petto" for="o">ー</label>
@@ -261,7 +264,7 @@ $dbh = null;
 <form action="sumaku.php" method="POST">
     <tr>
         <td>
-            <label>津波</label><br>
+            <h3>津波</h3><br>
             <input type="radio" name="tunami1" value="○" id="p" <?php if (isset($tunami1) && $tunami1 === '○') echo 'checked'; ?>><label class="tunami1" for="p">〇</label>
             <input type="radio" name="tunami1" value="×" id="q" <?php if (isset($tunami1) && $tunami1 === '×') echo 'checked'; ?>><label class="tunami1" for="q">✕</label>
             <input type="radio" name="tunami1" value="-" id="r" <?php if (isset($tunami1) && $tunami1 === '-') echo 'checked'; ?>><label class="tunami1" for="r">ー</label>
@@ -269,7 +272,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
         <br>
-            <label>火災</label><br>
+            <h3>火災</h3><br>
             <input type="radio" name="fire" value="○" id="s" <?php if (isset($fire) && $fire === '○') echo 'checked'; ?>><label class="fire" for="s">〇</label>
             <input type="radio" name="fire" value="×" id="t" <?php if (isset($fire) && $fire === '×') echo 'checked'; ?>><label class="fire" for="t">✕</label>
             <input type="radio" name="fire" value="-" id="u" <?php if (isset($fire) && $fire === '-') echo 'checked'; ?>><label class="fire" for="u">ー</label>
@@ -277,7 +280,7 @@ $dbh = null;
         <!-- 各ラジオボタンに対応する条件判定 -->
         <td>
         <br>
-            <label>ペット</label><br>
+            <h3>ペット</h3><br>
             <input type="radio" name="petto1" value="○" id="v" <?php if (isset($petto1) && $petto1 === '○') echo 'checked'; ?>><label class="petto1" for="v">〇</label>
             <input type="radio" name="petto1" value="×" id="w" <?php if (isset($petto1) && $petto1 === '×') echo 'checked'; ?>><label class="petto1" for="w">✕</label>
             <input type="radio" name="petto1" value="-" id="x" <?php if (isset($petto1) && $petto1 === '-') echo 'checked'; ?>><label class="petto1" for="x">ー</label>
@@ -314,7 +317,14 @@ $dbh = null;
 </table>
 <footer>
     <div class="footer-container">
-        
+    <a href="../src/higasinadaku.php">東灘区</a>
+    <a href="../src/tyuuouku.php">中央区</a>
+    <a href="../src/nadaku.php">灘区区</a>
+    <a href="../src/hyougoku.php">兵庫区</a>
+    <a href="../src/kitaku.php">北区</a>
+    <a href="../src/nagataku.php">長田区</a>
+    <a href="../src/tarumiku.php">垂水区</a>
+    <a href="../src/nisiku.php">西区</a>
     </div>
 </footer>
 </body>
