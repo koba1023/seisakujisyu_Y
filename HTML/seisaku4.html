@@ -141,6 +141,22 @@
         display: block;
         margin-top: 10px;
     }
+
+    .scroll-to-top-button {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px; 
+    border-radius: 50%; 
+    cursor: pointer;
+    display: none; /* 最初は非表示 */
+}
+
+
+
 </style>
 
 <body>
@@ -163,6 +179,10 @@
     </nav>
     <div class="container">
         <h2>体験談募集掲示板</h2>
+
+        <!-- 追加: 投稿フォームへのスクロールボタン -->
+        <button class="scroll-to-top-button" onclick="scrollToTop()">+</button>
+
         <div id="messages"></div>
 
         <form id="message-form">
@@ -238,9 +258,9 @@
                 var count = 0; // ボタンが押された回数を保持する変数
                 usefulButton.textContent = '❤' + count;
                 usefulButton.addEventListener('click', function () {
-                count++;
-                usefulButton.textContent = '❤' + count;
-            });
+                    count++;
+                    usefulButton.textContent = '❤' + count;
+                });
 
                 var usefulCount = document.createElement('span');
                 usefulCount.className = 'useful-count';
@@ -262,6 +282,9 @@
 
                 // メッセージが追加されたら、最下部までスクロール
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                // フッターのスクロールボタンを表示
+                document.querySelector('.scroll-to-top-button').style.display = 'block';
             }
         }
 
@@ -270,7 +293,20 @@
             terms.style.display = (terms.style.display === 'none' || terms.style.display === '') ? 'block' : 'none';
         }
 
-        
+        function scrollToTop() {
+            // 投稿フォームまでスクロール
+            document.getElementById('message-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // スクロール位置に応じてフッターのスクロールボタンを制御
+        window.onscroll = function () {
+            var scrollButton = document.querySelector('.scroll-to-top-button');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        };
     </script>
     <footer>
         <div class="footer-container">
