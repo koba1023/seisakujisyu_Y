@@ -3,26 +3,31 @@
 let map, geocoder;
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 12,
+    const kobeCoords = { lat: 34.6913, lng: 135.1830 }; // 神戸市の緯度経度座標
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: kobeCoords, // 神戸市を中心に設定
+        zoom: 12, // ズームレベルを調整
     });
-    geocoder = new google.maps.Geocoder();
-}
 
-function searchLocation() {
-    const address = document.getElementById('searchInput').value;
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer({
+        map,
+    });
 
-    geocoder.geocode({ 'address': address }, (results, status) => {
-        if (status === 'OK') {
-            map.setCenter(results[0].geometry.location);
-            const marker = new google.maps.Marker({
-                map,
-                position: results[0].geometry.location,
-                title: address,
-            });
+    const start = "神戸市の出発地点"; // 出発地点の住所など
+    const end = "神戸市の到着地点"; // 到着地点の住所など
+
+    const request = {
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING, // 移動手段を指定
+    };
+
+    directionsService.route(request, function (result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(result);
         } else {
-            alert('位置情報が見つかりませんでした: ' + status);
+            window.alert("Directions request failed due to " + status);
         }
     });
 }
