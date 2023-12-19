@@ -74,10 +74,11 @@
         margin: 0 auto;
         /* 中央に寄せるスタイル */
     }
-    #send-button:hover{
+
+    #send-button:hover {
         background-color: #135722;
     }
-    
+
     .terms {
         background-color: papayawhip;
         color: black;
@@ -114,7 +115,8 @@
 
     .toggle-button {
         cursor: pointer;
-        color: #007bff; /* トグルボタンのテキストカラーを青に変更 */
+        color: #007bff;
+        /* トグルボタンのテキストカラーを青に変更 */
         text-decoration: underline;
         display: block;
         margin-top: 10px;
@@ -122,7 +124,8 @@
     }
 
     .toggle-button:hover {
-        color: #0056b3; /* ホバー時のテキストカラーを濃い青に変更 */
+        color: #0056b3;
+        /* ホバー時のテキストカラーを濃い青に変更 */
     }
 
     .reply-form {
@@ -141,25 +144,31 @@
     }
 
     .reply-button {
-        background-color: #28a745; /* 緑に変更 */
+        background-color: #28a745;
+        /* 緑に変更 */
         color: #fff;
-        border: 2px solid #28a745; /* ボーダーも変更 */
+        border: 2px solid #28a745;
+        /* ボーダーも変更 */
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
     }
+
     .card.resolved {
-    border-color: blue; /* 解決済みのボーダーカラー */
-    background-color: gray; /* 解決済みの背景カラー */
-}
+        border-color: blue;
+        /* 解決済みのボーダーカラー */
+        background-color: gray;
+        /* 解決済みの背景カラー */
+    }
 
 
     .reply-button:hover {
-        background-color: #218838; /* ホバー時の色も変更 */
+        background-color: #218838;
+        /* ホバー時の色も変更 */
         border-color: #218838;
     }
-    </style>
+</style>
 
 
 <body>
@@ -221,6 +230,9 @@
                 <li>法的責任の免除：
                     <ul>
                         <li>当サイトは、利用者が当サイトを利用することにより生じた直接または間接の損害に対して一切の責任を負いません。</li>
+                        <!-- 利用規約同意のためのチェックボックス -->
+                        <input type="checkbox" id="agree-checkbox">
+                        <label for="agree-checkbox">利用規約に同意する</label>
                     </ul>
                 </li>
             </ol>
@@ -230,7 +242,7 @@
 
 
     <script>
-         function sendMessage() {
+        function sendMessage() {
             var usernameInput = document.getElementById('username-input');
             var titleInput = document.getElementById('title-input');
             var locationInput = document.getElementById('location-input');
@@ -325,11 +337,11 @@
             messageContainer.classList.toggle('resolved');
 
             resolveButton.disabled = true;
-        
+
         }
 
-  
-        
+
+
 
 
         function toggleTerms() {
@@ -406,5 +418,3 @@
 </body>
 
 </html>
-
-
